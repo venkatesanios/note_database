@@ -2,8 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-class alertanimate extends StatelessWidget {
-  const alertanimate({super.key, required this.title, required this.message});
+class AlertAnimate extends StatelessWidget {
+  const AlertAnimate({super.key, required this.title, required this.message});
   final String title;
   final String message;
 

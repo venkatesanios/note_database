@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:note_database/page/note_page.dart';
+import 'package:note_database/page/Program_home_page.dart';
 import 'package:note_database/src/texttovoice.dart';
 import 'package:note_database/style/animationAlert.dart';
 import 'package:note_database/style/textinput_style.dart';
@@ -22,35 +22,25 @@ class _LoginPageState extends State<LoginPage> {
   SpeakText speaktovoice = SpeakText();
 
   Future<void> authinticate() async {
-    print(
-        '-------------------------authinticate------------------------------>');
     try {
       final bool didAuthenticate = await auth.authenticate(
         localizedReason: 'Please authenticate to our application',
         options: const AuthenticationOptions(useErrorDialogs: false),
       );
-      print('didAuthenticate');
-      print(didAuthenticate);
       if (didAuthenticate == true) {
-        print('Login Succes');
-
         speaktovoice.speak('Login Succes ');
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => NotesPage()));
       }
     } catch (e) {
-      print('catch e');
-      print(e);
       if (e.toString().contains('notEnrolled') ||
           e.toString().contains('not available')) {
-        const alertanimate(title: 'title', message: 'message');
+        const AlertAnimate(title: 'title', message: 'message');
         speaktovoice.speak('Security credentials not available');
       } else if (e.toString().contains('lockedOut') ||
           e.toString().contains('permanentlyLockedOut')) {
         // Handle case when the user is locked out of biometrics
       } else {
-        print('else');
-        print(e);
         AwesomeDialog dialog = AwesomeDialog(
           context: context,
           dialogType: DialogType.error,
@@ -139,7 +129,6 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: const Text('SIGN IN'),
               ),
-
               // Image(image: AssetImage("loginbgdrop.png")),
             ]),
           ),
@@ -149,9 +138,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void gotomain() {
-    print('-------------------------gotomain------------------------------>');
-    // Navigator.push(
-    //     context, MaterialPageRoute(builder: (context) => NotesPage()));
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const NotesPage()));
   }
