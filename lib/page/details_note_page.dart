@@ -19,59 +19,82 @@ class NoteDetailPage extends StatefulWidget {
 class _NoteDetailPageState extends State<NoteDetailPage> {
   late Note note;
   bool isLoading = false;
-  
-  
+
   @override
   void initState() {
     super.initState();
+
     refreshNote();
   }
 
   Future refreshNote() async {
     setState(() => isLoading = true);
 
-    this.note = await NotesDatabase.instance.readNote(widget.noteId);
+    note = await NotesDatabase.instance.readNote(widget.noteId);
 
     setState(() => isLoading = false);
+    print('node$note');
+    print(widget);
+    print('widget.noteId');
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      actions: [editButton(), deleteButton()],
-    ),
-    body: isLoading
-        ? Center(child: CircularProgressIndicator())
-        : Padding(
-      padding: EdgeInsets.all(12),
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8),
-        children: [
-          Text(
-            note.title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            DateFormat.yMMMd().format(note.createdTime),
-            style: TextStyle(color: Colors.white38),
-          ),
-          SizedBox(height: 8),
-          Text(
-            note.description,
-            style: TextStyle(color: Colors.white70, fontSize: 18),
-          )
-        ],
-      ),
-    ),
-  );
+        appBar: AppBar(
+          title: const Text('detail'),
+          actions: [AlertButton(), editButton(), deleteButton()],
+        ),
+        body: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Padding(
+                padding: const EdgeInsets.all(12),
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  children: [
+                    Text(
+                      note.title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      DateFormat.yMMMd().format(note.createdTime),
+                      style: const TextStyle(color: Colors.white38),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      note.description,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      note.setting1,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      note.setting2,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      note.setting3,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+      );
 
   Widget editButton() => IconButton(
-      icon: Icon(Icons.edit_outlined),
+      icon: const Icon(Icons.edit_outlined),
       onPressed: () async {
         if (isLoading) return;
 
@@ -81,13 +104,35 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
 
         refreshNote();
       });
+  Widget AlertButton() => IconButton(
+        icon: const Icon(Icons.edit_attributes),
+        onPressed: () {
+          AlertDialog(
+            title: const Text('alert'),
+            backgroundColor: Colors.white54,
+            content: const Text('Programs '),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'Cancel'),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'OK'),
+                child: const Text('OK'),
+              ),
+            ],
+          );
+
+          refreshNote();
+        },
+      );
 
   Widget deleteButton() => IconButton(
-    icon: Icon(Icons.delete),
-    onPressed: () async {
-      await NotesDatabase.instance.delete(widget.noteId);
+        icon: const Icon(Icons.delete),
+        onPressed: () async {
+          await NotesDatabase.instance.delete(widget.noteId);
 
-      Navigator.of(context).pop();
-    },
-  );
+          Navigator.of(context).pop();
+        },
+      );
 }
