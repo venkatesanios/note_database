@@ -22,6 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   SpeakText speaktovoice = SpeakText();
 
   Future<void> authinticate() async {
+    print(
+        '-------------------------authinticate------------------------------>');
     try {
       final bool didAuthenticate = await auth.authenticate(
         localizedReason: 'Please authenticate to our application',
@@ -126,8 +128,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               ElevatedButton(
-                onPressed:
-                    authinticate, //form_key == null ? gotomain : authinticate,
+                onPressed: () {
+                  // if (form_key.currentState!.validate()) {
+                  //   gotomain;
+                  // }
+                  print(form_key.currentState!.validate());
+                  form_key.currentState!.validate()
+                      ? gotomain()
+                      : authinticate();
+                },
                 child: const Text('SIGN IN'),
               ),
 
@@ -139,7 +148,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  gotomain() {
+  void gotomain() {
+    print('-------------------------gotomain------------------------------>');
     // Navigator.push(
     //     context, MaterialPageRoute(builder: (context) => NotesPage()));
     Navigator.push(

@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "C:\\Users\\ASROCK\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\rive_common-0.0.9\\android\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\ASROCK\\AppData\\Local\\Android\\sdk\\cmake\\3.18.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\ASROCK\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\rive_common-0.0.9\\android\\.cxx\\Debug\\2r5n1l13\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\ASROCK\\AppData\\Local\\Android\\sdk\\cmake\\3.18.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\ASROCK\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\rive_common-0.0.9\\android\\.cxx\\Debug\\2r5n1l13\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "rive_text::@6890427a1f51a3e7e1df": {
+      "artifactName": "rive_text",
+      "abi": "x86_64",
+      "output": "D:\\venkatesan\\sql\\note_database\\build\\rive_common\\intermediates\\cxx\\Debug\\2r5n1l13\\obj\\x86_64\\librive_text.so",
+      "runtimeFiles": []
+    }
+  }
+}
