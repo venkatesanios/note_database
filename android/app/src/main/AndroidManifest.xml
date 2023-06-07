@@ -1,5 +1,22 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.example.note_database">
+
+ <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+ <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+ <uses-permission android:name="android.permission.INTERNET"/>
+ <uses-permission android:name="android.permission.BLUETOOTH"/>
+ <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+ <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+
+
+
+    <queries>
+    <intent>
+        <action android:name="android.intent.action.TTS_SERVICE" />
+    </intent>
+</queries>
+
+ <application
         android:label="note_database"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
