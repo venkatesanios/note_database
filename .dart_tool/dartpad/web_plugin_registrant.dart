@@ -3,6 +3,18 @@
 // Generated file. Do not edit.
 //
 
+// @dart = 2.13
 // ignore_for_file: type=lint
 
-void registerPlugins() {}
+import 'package:flutter_tts/flutter_tts_web.dart';
+import 'package:rive_common/rive_web.dart';
+import 'package:speech_to_text/speech_to_text_web.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+
+void registerPlugins([final Registrar? pluginRegistrar]) {
+  final Registrar registrar = pluginRegistrar ?? webPluginRegistrar;
+  FlutterTtsPlugin.registerWith(registrar);
+  RivePlugin.registerWith(registrar);
+  SpeechToTextPlugin.registerWith(registrar);
+  registrar.registerMessageHandler();
+}

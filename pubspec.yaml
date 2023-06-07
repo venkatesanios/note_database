@@ -16,6 +16,11 @@ dependencies:
   sqflite: ^2.2.8+4
   intl: ^0.18.1
   flutter_staggered_grid_view: ^0.4.0-nullsafety.3
+  awesome_dialog: ^3.0.2
+  local_auth: ^2.1.6
+  flutter_tts: ^3.7.0
+  speech_to_text: ^6.1.1
+  permission_handler: ^10.2.0
 
 
 
@@ -25,6 +30,14 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-flutter:
 
+
+
+flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/loginbg.jpg
+    - assets/images/loginbgdrop.png
+
+ 
