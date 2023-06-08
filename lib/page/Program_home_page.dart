@@ -64,6 +64,7 @@ class _NotesPageState extends State<NotesPage> {
                   setState(() {
                     //update UI
                   });
+                  Navigator.pop(context, 'OK');
                 },
                 child: const Text('Open Camera'),
               ),
@@ -75,6 +76,7 @@ class _NotesPageState extends State<NotesPage> {
                 onPressed: () async {
                   image = await picker.pickImage(source: ImageSource.gallery);
                   setState(() {});
+                  Navigator.pop(context, 'OK');
                 },
                 child: const Text('Open Gallery'),
               ),

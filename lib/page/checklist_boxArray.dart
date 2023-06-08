@@ -64,7 +64,7 @@ class _MultiSelectState extends State<MultiSelection> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Select Program'),
+      title: const Text('Create Duplicate Program'),
       content: SingleChildScrollView(
         child: ListBody(
           children: widget.items

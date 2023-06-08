@@ -3,8 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/checklist_boxArray.dart';
 
-
-
 class ProgramListWidget extends StatefulWidget {
   const ProgramListWidget({
     Key? key,
@@ -26,7 +24,11 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
     final List<String>? results = await showDialog(
       context: context,
       builder: (BuildContext context) {
-        return MultiSelection(items: widget.notes.where((element) => element.id != widget.notes[widget.index].id).map((e) => e.title).toList());
+        return MultiSelection(
+            items: widget.notes
+                .where((element) => element.id != widget.notes[widget.index].id)
+                .map((e) => e.title)
+                .toList());
       },
     );
     // Update UI
@@ -40,8 +42,10 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
   @override
   Widget build(BuildContext context) {
     /// Pick colors from the accent colors based on index
-    final date = DateFormat.yMMMd().format(widget.notes[widget.index].createdTime);
-    final times = DateFormat.Hms().format(widget.notes[widget.index].createdTime);
+    final date =
+        DateFormat.yMMMd().format(widget.notes[widget.index].createdTime);
+    final times =
+        DateFormat.Hms().format(widget.notes[widget.index].createdTime);
     final time = "$date-$times";
 
     return Card(
@@ -56,15 +60,15 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                 Text(
-              widget.notes[widget.index].title,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Spacer(),
+                Text(
+                  widget.notes[widget.index].title,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer(),
                 Container(
                   child: IconButton(
                     onPressed: _showMultiSelect,
@@ -73,7 +77,6 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
                 ),
               ],
             ),
-          
             Text(
               widget.notes[widget.index].description,
               style: const TextStyle(
@@ -82,15 +85,16 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 12,),
-             Text(
-                  'Last updated : $time',
-                  style: TextStyle(color: Colors.grey.shade900, fontSize: 14),
-                ),
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              'Last updated : $time',
+              style: TextStyle(color: Colors.grey.shade900, fontSize: 14),
+            ),
           ],
         ),
       ),
     );
   }
-
 }
