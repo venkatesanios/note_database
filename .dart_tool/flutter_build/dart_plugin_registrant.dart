@@ -6,8 +6,10 @@
 // @dart = 3.0
 
 import 'dart:io'; // flutter_ignore: dart_io_import.
+import 'package:image_picker_android/image_picker_android.dart';
 import 'package:local_auth_android/local_auth_android.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:image_picker_ios/image_picker_ios.dart';
 import 'package:local_auth_ios/local_auth_ios.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:speech_to_text_macos/speech_to_text_macos.dart';
@@ -20,6 +22,15 @@ class _PluginRegistrant {
   @pragma('vm:entry-point')
   static void register() {
     if (Platform.isAndroid) {
+      try {
+        ImagePickerAndroid.registerWith();
+      } catch (err) {
+        print(
+          '`image_picker_android` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+      }
+
       try {
         LocalAuthAndroid.registerWith();
       } catch (err) {
@@ -39,6 +50,15 @@ class _PluginRegistrant {
       }
 
     } else if (Platform.isIOS) {
+      try {
+        ImagePickerIOS.registerWith();
+      } catch (err) {
+        print(
+          '`image_picker_ios` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+      }
+
       try {
         LocalAuthIOS.registerWith();
       } catch (err) {

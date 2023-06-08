@@ -25,7 +25,8 @@ class _LoginPageState extends State<LoginPage> {
     try {
       final bool didAuthenticate = await auth.authenticate(
         localizedReason: 'Please authenticate to our application',
-        options: const AuthenticationOptions(useErrorDialogs: false),
+        options: const AuthenticationOptions(
+            useErrorDialogs: false, biometricOnly: false),
       );
       if (didAuthenticate == true) {
         speaktovoice.speak('Login Succes ');
@@ -33,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             context, MaterialPageRoute(builder: (context) => NotesPage()));
       }
     } catch (e) {
+      print(e.toString());
       if (e.toString().contains('notEnrolled') ||
           e.toString().contains('not available')) {
         const AlertAnimate(title: 'title', message: 'message');

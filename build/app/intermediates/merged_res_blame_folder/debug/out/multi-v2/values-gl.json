@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.note_database.app-mergeDebugResources-20:/values-gl/values-gl.xml",
+            "outputFile": "com.example.note_database.app-mergeDebugResources-24:/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ASROCK\\.gradle\\caches\\transforms-3\\29a53b35c072e5e16e15ef7c62078a12\\transformed\\biometric-1.1.0\\res\\values-gl\\values-gl.xml",

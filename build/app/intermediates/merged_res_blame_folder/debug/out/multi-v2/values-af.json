@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.note_database.app-mergeDebugResources-20:/values-af/values-af.xml",
+            "outputFile": "com.example.note_database.app-mergeDebugResources-24:/values-af/values-af.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ASROCK\\.gradle\\caches\\transforms-3\\c4988ff80110f75080a936fc6f044848\\transformed\\core-1.10.1\\res\\values-af\\values-af.xml",

@@ -13,31 +13,31 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:2-63
-15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:19-61
+15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:2-63
+15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:19-61
 16    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:2-68
-16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:19-66
+16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:3:2-68
+16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:3:19-66
 17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:2-67
-17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:19-65
+17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:2-67
+17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:19-65
 18    <uses-permission android:name="android.permission.BLUETOOTH" />
-18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:2-64
-18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:19-62
+18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:2-64
+18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:19-62
 19    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:2-70
-19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:19-68
+19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:2-70
+19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:19-68
 20    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:9:2-72
-20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:9:19-70
+20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:2-72
+20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:19-70
 21
 22    <queries>
-22-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:13:5-17:11
+22-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:10:5-14:11
 23        <intent>
-23-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:14:5-16:14
+23-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:11:5-13:14
 24            <action android:name="android.intent.action.TTS_SERVICE" />
-24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:15:9-68
-24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:15:17-65
+24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:12:9-68
+24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:12:17-65
 25        </intent>
 26    </queries> <!-- suppress DeprecatedClassUsageInspection -->
 27    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
@@ -61,52 +61,125 @@
 37-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
 38        android:debuggable="true"
 39        android:icon="@mipmap/ic_launcher"
-40        android:label="note_database" >
-41        <activity
-42            android:name="com.example.note_database.MainActivity"
-43            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-44            android:exported="true"
-45            android:hardwareAccelerated="true"
-46            android:launchMode="singleTop"
-47            android:theme="@style/LaunchTheme"
-48            android:windowSoftInputMode="adjustResize" >
-49
-50            <!--
-51                 Specifies an Android theme to apply to this Activity as soon as
-52                 the Android process has started. This theme is visible to the user
-53                 while the Flutter UI initializes. After that, this theme continues
-54                 to determine the Window background behind the Flutter UI.
-55            -->
-56            <meta-data
-57                android:name="io.flutter.embedding.android.NormalTheme"
-58                android:resource="@style/NormalTheme" />
-59
-60            <intent-filter>
-61                <action android:name="android.intent.action.MAIN" />
-62
-63                <category android:name="android.intent.category.LAUNCHER" />
-64            </intent-filter>
-65        </activity>
-66        <!--
-67             Don't delete the meta-data below.
-68             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-69        -->
-70        <meta-data
-71            android:name="flutterEmbedding"
-72            android:value="2" />
-73
-74        <uses-library
-74-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-75            android:name="androidx.window.extensions"
-75-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-76            android:required="false" />
-76-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-77        <uses-library
-77-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-78            android:name="androidx.window.sidecar"
-78-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-79            android:required="false" />
-79-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-80    </application>
-81
-82</manifest>
+40        android:label="note_database"
+41        android:requestLegacyExternalStorage="true" >
+42        <activity
+43            android:name="com.example.note_database.MainActivity"
+44            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+45            android:exported="true"
+46            android:hardwareAccelerated="true"
+47            android:launchMode="singleTop"
+48            android:theme="@style/LaunchTheme"
+49            android:windowSoftInputMode="adjustResize" >
+50
+51            <!--
+52                 Specifies an Android theme to apply to this Activity as soon as
+53                 the Android process has started. This theme is visible to the user
+54                 while the Flutter UI initializes. After that, this theme continues
+55                 to determine the Window background behind the Flutter UI.
+56            -->
+57            <meta-data
+58                android:name="io.flutter.embedding.android.NormalTheme"
+59                android:resource="@style/NormalTheme" />
+60
+61            <intent-filter>
+62                <action android:name="android.intent.action.MAIN" />
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+65            </intent-filter>
+66        </activity>
+67        <!--
+68             Don't delete the meta-data below.
+69             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+70        -->
+71        <meta-data
+72            android:name="flutterEmbedding"
+73            android:value="2" />
+74
+75        <provider
+75-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+76            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+76-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
+77            android:authorities="com.example.note_database.flutter.image_provider"
+77-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
+78            android:exported="false"
+78-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+79            android:grantUriPermissions="true" >
+79-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+80            <meta-data
+80-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
+81                android:name="android.support.FILE_PROVIDER_PATHS"
+81-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+82                android:resource="@xml/flutter_image_picker_file_paths" />
+82-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
+83        </provider>
+84
+85        <uses-library
+85-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+86            android:name="androidx.window.extensions"
+86-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+87            android:required="false" />
+87-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+88        <uses-library
+88-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+89            android:name="androidx.window.sidecar"
+89-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+90            android:required="false" />
+90-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+91
+92        <provider
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+93            android:name="androidx.startup.InitializationProvider"
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:25:13-67
+94            android:authorities="com.example.note_database.androidx-startup"
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:26:13-68
+95            android:exported="false" >
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:27:13-37
+96            <meta-data
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+97                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+98                android:value="androidx.startup" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+99        </provider>
+100
+101        <receiver
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+102            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+103            android:directBootAware="false"
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+104            android:enabled="true"
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+105            android:exported="true"
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+106            android:permission="android.permission.DUMP" >
+106-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+108                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+109            </intent-filter>
+110            <intent-filter>
+110-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+111                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+111-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+112            </intent-filter>
+113            <intent-filter>
+113-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+114                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+114-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+115            </intent-filter>
+116            <intent-filter>
+116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+117                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+118            </intent-filter>
+119        </receiver>
+120    </application>
+121
+122</manifest>
