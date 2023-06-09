@@ -6,7 +6,8 @@ import 'package:note_database/db/node_database.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/TextToVoice.dart';
 import 'package:note_database/page/VoicetoText.dart';
-import 'package:note_database/page/details_program_page.dart';
+import 'package:note_database/page/others.dart';
+import 'package:note_database/page/view_program_page.dart';
 import 'package:note_database/page/edit_program_page.dart';
 import 'package:note_database/page/imagePicker.dart';
 import 'package:note_database/page/login_page.dart';
@@ -177,6 +178,19 @@ class _NotesPageState extends State<NotesPage> {
                   //
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Myimage()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('Others'),
+                onTap: () {
+                  //
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Others()));
                 },
               ),
               const Divider(
