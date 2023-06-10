@@ -70,7 +70,7 @@ class _NotesPageState extends State<NotesPage> {
                 child: const Text('Open Camera'),
               ),
               TextButton(
-                child: Text('    '),
+                child: const Text('    '),
                 onPressed: () {},
               ),
               ElevatedButton(
@@ -103,14 +103,14 @@ class _NotesPageState extends State<NotesPage> {
           child: Column(
             children: [
               UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF80A84F),
                 ),
-                accountName: Text(
+                accountName: const Text(
                   'Venkatesan',
                   style: TextStyle(fontSize: 18.0, color: Colors.white),
                 ),
-                accountEmail: Text(
+                accountEmail: const Text(
                   'venkatesan.niagara@gmail.com',
                   style: TextStyle(fontSize: 14.0, color: Colors.white70),
                 ),
