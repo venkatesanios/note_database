@@ -67,8 +67,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         title: const Text('Login'),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -82,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Padding(

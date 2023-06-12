@@ -138,7 +138,9 @@ class _NotesPageState extends State<NotesPage> {
               ),
               ListTile(
                 title: const Text('home'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
               const Divider(
                 height: 1.0,

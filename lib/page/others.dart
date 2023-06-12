@@ -13,6 +13,7 @@ class Others extends StatefulWidget {
 class _OthersState extends State<Others> {
   TextEditingController typetext = TextEditingController();
   List<String> _Selecteditem = [];
+  List<int> _Selecteditemindex = [];
 
   List<Map<String, dynamic>> valvelistmap = [
     {
@@ -21,6 +22,7 @@ class _OthersState extends State<Others> {
       'flow': 1,
       'pressure': '2.1',
       'cyclicRst': true,
+      'index': 0
     },
     {
       'name': 'Valve 2',
@@ -28,6 +30,7 @@ class _OthersState extends State<Others> {
       'flow': 12,
       'pressure': '2.2',
       'cyclicRst': true,
+      'index': 1
     },
     {
       'name': 'Valve 3',
@@ -35,6 +38,7 @@ class _OthersState extends State<Others> {
       'flow': 123,
       'pressure': '2.3',
       'cyclicRst': true,
+      'index': 2
     },
     {
       'name': 'Valve 4',
@@ -42,6 +46,7 @@ class _OthersState extends State<Others> {
       'flow': 1234,
       'pressure': '2.4',
       'cyclicRst': true,
+      'index': 3
     },
   ];
 
@@ -61,16 +66,20 @@ class _OthersState extends State<Others> {
 
   List<String> getnamevalues(int index) {
     List<String> name = [];
+    List<int> nameindex = [];
     for (var i = 0; i < valvelistmap.length; i++) {
       if (i != index) {
         name.add(valvelistmap[i]['name'].toString());
+        nameindex.add(i);
       }
     }
-    print(name);
     return name;
   }
 
-  void _showMultiSelect(List<String> item) async {
+  void _showMultiSelect(List<String> item, int index) async {
+    print('_showMultiSelect valvelistmap');
+    print(valvelistmap);
+    final List<String>? results1 = [];
     final List<String>? results = await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -81,8 +90,23 @@ class _OthersState extends State<Others> {
     if (results != null) {
       setState(() {
         _Selecteditem = results;
+        print('selecteditem:$_Selecteditem');
+        for (var element in _Selecteditem) {
+          int indexva =
+              valvelistmap.indexWhere((item) => item["name"] == element);
+
+          Map<String, dynamic> fi = valvelistmap[index];
+          valvelistmap[indexva]['time'] = fi['time'];
+          valvelistmap[indexva]['flow'] = fi['flow'];
+          valvelistmap[indexva]['pressure'] = fi['pressure'];
+          valvelistmap[indexva]['cyclicRst'] = fi['cyclicRst'];
+
+          print(valvelistmap);
+        }
       });
     }
+    print('end valvelistmap');
+    print(valvelistmap);
   }
 
   Widget build(BuildContext context) {
@@ -113,12 +137,11 @@ class _OthersState extends State<Others> {
             subtitle: Text('details'),
             trailing: IconButton(
                 onPressed: () {
-                  _showMultiSelect(getnamevalues(index));
+                  _showMultiSelect(getnamevalues(index), index);
                 },
                 icon: const Icon(Icons.merge)),
             onExpansionChanged: (value) {
               getmapvalues(index);
-              print(getmapvalues(index));
             },
             children: <Widget>[
               Column(
