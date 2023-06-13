@@ -188,7 +188,7 @@ class _NotesPageState extends State<NotesPage> {
                 thickness: 1.0,
               ),
               ListTile(
-                title: const Text('Others'),
+                title: const Text('Duplicate create'),
                 onTap: () {
                   //
                   Navigator.push(context,
