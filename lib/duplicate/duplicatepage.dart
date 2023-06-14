@@ -1,9 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:note_database/Provider/test_provider.dart';
 import 'package:note_database/duplicate/duplicatemodel.dart';
 import 'package:note_database/page/checklist_boxArray.dart';
-import 'package:note_database/src/displayTimeDialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 
 class DuplicatePage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
   final _formKeypressure = GlobalKey<FormState>();
   late List<DupligateValveSet> valveModel;
 
-  List<Map<String, dynamic>> valvelistmap = [
+  List<Map<String, dynamic>> valvelistmapcheck = [
     {
       'name': 'Valve 1',
       'time': '08:51',
@@ -58,6 +59,40 @@ class _DuplicatePageState extends State<DuplicatePage> {
       'cyclicRst': false,
     },
   ];
+  List<Map<String, dynamic>> valvelistmap =
+      valvelistmap == null ? valvelistmapcheck : getListFromSharedPreferences();
+
+  Future<void> saveListInSharedPreferences(
+      List<Map<String, dynamic>> list) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String jsonString = jsonEncode(list);
+    await prefs.setString('valvelistmap', jsonString);
+  }
+
+  Future<List<Map<String, dynamic>>> getListFromSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? jsonString = prefs.getString('valvelistmap');
+    if (jsonString != null) {
+      List<dynamic> jsonData = jsonDecode(jsonString);
+      List<Map<String, dynamic>> list =
+          jsonData.map((item) => item as Map<String, dynamic>).toList();
+      return list;
+    } else {
+      return [];
+    }
+  }
+
+  // Save the list in shared preferences
+  void saveshared() async {
+    await saveListInSharedPreferences(valvelistmap);
+  }
+
+  // Retrieve the list from shared preferences
+  Future<List<Map<String, dynamic>>> retrievedshared() async {
+    List<Map<String, dynamic>> retrievedList =
+        await getListFromSharedPreferences();
+    return retrievedList;
+  }
 
   @override
   void initState() {
@@ -109,6 +144,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
     for (int i = 0; i < valvelistmap.length; i++) {
       valveModel.add(DupligateValveSet.fromJson(valvelistmap[i]));
     }
+    saveshared();
   }
 
   List<dynamic> getmapvalues(int index) {
