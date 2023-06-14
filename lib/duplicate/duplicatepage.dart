@@ -59,8 +59,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
       'cyclicRst': false,
     },
   ];
-  List<Map<String, dynamic>> valvelistmap =
-      valvelistmap == null ? valvelistmapcheck : getListFromSharedPreferences();
+  List<Map<String, dynamic>> valvelistmap = [];
 
   Future<void> saveListInSharedPreferences(
       List<Map<String, dynamic>> list) async {
@@ -83,8 +82,8 @@ class _DuplicatePageState extends State<DuplicatePage> {
   }
 
   // Save the list in shared preferences
-  void saveshared() async {
-    await saveListInSharedPreferences(valvelistmap);
+  void saveshared(List<Map<String, dynamic>> list) async {
+    await saveListInSharedPreferences(list);
   }
 
   // Retrieve the list from shared preferences
@@ -97,6 +96,15 @@ class _DuplicatePageState extends State<DuplicatePage> {
   @override
   void initState() {
     super.initState();
+    void main() async {
+      valvelistmap = await getListFromSharedPreferences();
+      if (valvelistmap == null) {
+        valvelistmap = valvelistmapcheck;
+      }
+      print('valvelistmap');
+      print(valvelistmap);
+    }
+
     updateValvaModel();
     for (int i = 0; i < valvelistmap.length; i++) {
       timeTextControllers.add(TextEditingController());
@@ -144,7 +152,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
     for (int i = 0; i < valvelistmap.length; i++) {
       valveModel.add(DupligateValveSet.fromJson(valvelistmap[i]));
     }
-    saveshared();
+    saveshared(valvelistmap);
   }
 
   List<dynamic> getmapvalues(int index) {
