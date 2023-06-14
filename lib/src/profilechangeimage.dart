@@ -25,7 +25,7 @@ XFile? Profileimage(BuildContext context) {
               child: const Text('Open Camera'),
             ),
             TextButton(
-              child: Text('    '),
+              child: const Text('    '),
               onPressed: () {},
             ),
             ElevatedButton(

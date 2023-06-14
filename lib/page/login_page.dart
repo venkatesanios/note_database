@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       if (didAuthenticate == true) {
         speaktovoice.speak('Login Succes ');
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NotesPage()));
+            context, MaterialPageRoute(builder: (context) => const NotesPage()));
       }
     } catch (e) {
       print(e.toString());

@@ -14,13 +14,7 @@ Future<void> displayTimeDialog(
       );
     },
   );
-  //   if (time != null) {
-  //   setState(() {
-  //   controller.text = time.format(context);
-  //    });
-  // } formattedTime != null
-  //         ? '$formattedTime'
-  //         : '00:00',
+
   if (time != null) {
     final formattedTime = DateFormat.Hm().format(DateTime(
       DateTime.now().year,

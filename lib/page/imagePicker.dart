@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Myimage extends StatefulWidget {
+  const Myimage({super.key});
+
   @override
   _MyimageState createState() => _MyimageState();
 }
@@ -18,7 +20,7 @@ class _MyimageState extends State<Myimage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Image Picker"),
+          title: const Text("Image Picker"),
         ),
         body: Container(
             child: imageFile == null
@@ -32,7 +34,7 @@ class _MyimageState extends State<Myimage> {
                           onPressed: () {
                             _getFromGallery();
                           },
-                          child: Text("PICK FROM GALLERY"),
+                          child: const Text("PICK FROM GALLERY"),
                         ),
                         Container(
                           height: 40.0,
@@ -42,7 +44,7 @@ class _MyimageState extends State<Myimage> {
                           onPressed: () {
                             _getFromCamera();
                           },
-                          child: Text("PICK FROM CAMERA"),
+                          child: const Text("PICK FROM CAMERA"),
                         ),
                         ElevatedButton(
                             onPressed: () async {
@@ -52,7 +54,7 @@ class _MyimageState extends State<Myimage> {
                                 //update UI
                               });
                             },
-                            child: Text("Pick Image")),
+                            child: const Text("Pick Image")),
                         image == null
                             ? Container()
                             : Image.file(File(image!.path)),

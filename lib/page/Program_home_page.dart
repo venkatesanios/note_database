@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:note_database/db/node_database.dart';
+import 'package:note_database/duplicate/duplicatepage.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/TextToVoice.dart';
 import 'package:note_database/page/VoicetoText.dart';
@@ -165,8 +166,10 @@ class _NotesPageState extends State<NotesPage> {
                 title: const Text('Text to Voice'),
                 onTap: () {
                   //
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Texttovoice()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Texttovoice()));
                 },
               ),
               const Divider(
@@ -179,7 +182,20 @@ class _NotesPageState extends State<NotesPage> {
                 onTap: () {
                   //
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Myimage()));
+                      MaterialPageRoute(builder: (context) => const Myimage()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('others '),
+                onTap: () {
+                  //
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Others()));
                 },
               ),
               const Divider(
@@ -191,8 +207,10 @@ class _NotesPageState extends State<NotesPage> {
                 title: const Text('Duplicate create'),
                 onTap: () {
                   //
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Others()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DuplicatePage()));
                 },
               ),
               const Divider(

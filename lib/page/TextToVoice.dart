@@ -4,7 +4,7 @@ import 'package:note_database/src/texttovoice.dart';
 import 'package:provider/provider.dart';
 
 class Texttovoice extends StatefulWidget {
-  Texttovoice({super.key});
+  const Texttovoice({super.key});
 
   @override
   State<Texttovoice> createState() => _TexttovoiceState();
@@ -52,7 +52,7 @@ class _TexttovoiceState extends State<Texttovoice> {
               height: 40,
             ),
             ElevatedButton(
-              child: Text('speach'),
+              child: const Text('speach'),
               onPressed: () {
                 name.namechange(typetext.text);
                 speaktovoice.speak(typetext.text);

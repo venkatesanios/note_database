@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: "Test App",
       home: HomePage(),
     );
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _HomePage();
@@ -47,11 +50,11 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TimePicker on TextField"),
+        title: const Text("TimePicker on TextField"),
         backgroundColor: Colors.redAccent,
       ),
       body: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         height: 150,
         child: Center(
           child: TextField(
@@ -60,7 +63,7 @@ class _HomePage extends State<HomePage> {
               icon: Icon(Icons.timer),
               labelText: "Enter Time",
             ),
-            style: TextStyle(fontSize: 20.0, color: Colors.white),
+            style: const TextStyle(fontSize: 20.0, color: Colors.white),
             readOnly: true,
             onTap: displayTimeDialog,
             //onPressed: displayTimeDialog,

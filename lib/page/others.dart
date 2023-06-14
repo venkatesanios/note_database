@@ -3,10 +3,9 @@ import 'package:note_database/Provider/test_provider.dart';
 import 'package:note_database/page/checklist_boxArray.dart';
 import 'package:note_database/src/displayTimeDialog.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 
 class Others extends StatefulWidget {
-  Others({Key? key}) : super(key: key);
+  const Others({Key? key}) : super(key: key);
 
   @override
   State<Others> createState() => _OthersState();
@@ -15,14 +14,15 @@ class Others extends StatefulWidget {
 class _OthersState extends State<Others> {
   TextEditingController typetext = TextEditingController();
   List<String> _Selecteditem = [];
-  List<int> _Selecteditemindex = [];
+  final List<int> _Selecteditemindex = [];
   List<TextEditingController> timeTextControllers =
       []; // Create a list of controllers
   List<TextEditingController> flow_textcontroller = [];
   List<TextEditingController> pressure_textcontroller = [];
-  List<TextEditingController> cyc_textcontroller = [];
   List<bool> cycRst_textcontroller = [];
-  bool switch_on_off = false;
+  final _formKeytime = GlobalKey<FormState>();
+  final _formKeyflow = GlobalKey<FormState>();
+  final _formKeypressure = GlobalKey<FormState>();
 
   List<Map<String, dynamic>> valvelistmap = [
     {
@@ -31,7 +31,6 @@ class _OthersState extends State<Others> {
       'flow': 111,
       'pressure': '1.1',
       'cyclicRst': true,
-      'index': 0
     },
     {
       'name': 'Valve 2',
@@ -39,7 +38,6 @@ class _OthersState extends State<Others> {
       'flow': 222,
       'pressure': '2.2',
       'cyclicRst': false,
-      'index': 1
     },
     {
       'name': 'Valve 3',
@@ -47,7 +45,6 @@ class _OthersState extends State<Others> {
       'flow': 333,
       'pressure': '3.3',
       'cyclicRst': true,
-      'index': 2
     },
     {
       'name': 'Valve 4',
@@ -55,7 +52,6 @@ class _OthersState extends State<Others> {
       'flow': 4444,
       'pressure': '4.4',
       'cyclicRst': false,
-      'index': 3
     },
   ];
 
@@ -66,8 +62,11 @@ class _OthersState extends State<Others> {
       timeTextControllers.add(TextEditingController());
       flow_textcontroller.add(TextEditingController());
       pressure_textcontroller.add(TextEditingController());
-      cyc_textcontroller
-          .add(TextEditingController()); // Initialize controllers for each item
+      cycRst_textcontroller.add(valvelistmap[i]['cyclicRst']);
+
+      timeTextControllers[i].text = valvelistmap[i]['time'];
+      flow_textcontroller[i].text = valvelistmap[i]['flow'].toString();
+      pressure_textcontroller[i].text = valvelistmap[i]['pressure'].toString();
     }
   }
 
@@ -93,9 +92,8 @@ class _OthersState extends State<Others> {
   }
 
   void _showMultiSelect(List<String> item, int index) async {
-    print('_showMultiSelect valvelistmap');
+    print('first---------------->');
     print(valvelistmap);
-    final List<String>? results1 = [];
     final List<String>? results = await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -107,27 +105,37 @@ class _OthersState extends State<Others> {
       setState(() {
         _Selecteditem = results;
         for (var element in _Selecteditem) {
-          int indexva =
+          int changeindex =
               valvelistmap.indexWhere((item) => item["name"] == element);
 
-          Map<String, dynamic> fi = valvelistmap[index];
-          valvelistmap[indexva]['time'] = fi['time'];
-          valvelistmap[indexva]['flow'] = fi['flow'];
-          valvelistmap[indexva]['pressure'] = fi['pressure'];
-          valvelistmap[indexva]['cyclicRst'] = fi['cyclicRst'];
+          Map<String, dynamic> copyvalve = valvelistmap[index];
+          valvelistmap[changeindex]['time'] = copyvalve['time'];
+          valvelistmap[changeindex]['flow'] = copyvalve['flow'];
+          valvelistmap[changeindex]['pressure'] = copyvalve['pressure'];
+          valvelistmap[changeindex]['cyclicRst'] = copyvalve['cyclicRst'];
+
+          cycRst_textcontroller[changeindex] =
+              valvelistmap[changeindex]['cyclicRst'];
+          timeTextControllers[changeindex].text =
+              valvelistmap[changeindex]['time'];
+          flow_textcontroller[changeindex].text =
+              valvelistmap[changeindex]['flow'].toString();
+          pressure_textcontroller[changeindex].text =
+              valvelistmap[changeindex]['pressure'].toString();
         }
       });
+      print('last---------------->');
+      print(valvelistmap);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     TestProvider name = Provider.of<TestProvider>(context, listen: true);
-    List<bool> _isExpandedList =
+    List<bool> isExpandedList =
         List.generate(valvelistmap.length, (index) => false);
 
     typetext.text = name.name;
-    String timeval = '';
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -145,9 +153,9 @@ class _OthersState extends State<Others> {
         itemBuilder: (context, index) {
           return ExpansionTile(
             //  collapsedBackgroundColor: Colors.amber,
-            backgroundColor: _isExpandedList[index]
-                ? Color(0xFF587B2E)
-                : Color.fromARGB(255, 92, 117, 61),
+            backgroundColor: isExpandedList[index]
+                ? const Color(0xFF587B2E)
+                : const Color.fromARGB(255, 92, 117, 61),
             title: Text(
               valvelistmap[index]['name'],
               style: const TextStyle(
@@ -159,17 +167,18 @@ class _OthersState extends State<Others> {
             subtitle: const Text('details'),
             trailing: IconButton(
               onPressed: () {
-                _showMultiSelect(getnamevalues(index), index);
+                setState(() {
+                  _showMultiSelect(getnamevalues(index), index);
+                });
               },
               icon: const Icon(Icons.merge),
             ),
             onExpansionChanged: (value) {
               getmapvalues(index);
               setState(() {
-                _isExpandedList[index] = value;
+                isExpandedList[index] = value;
               });
             },
-
             children: <Widget>[
               Column(
                 children: [
@@ -182,14 +191,20 @@ class _OthersState extends State<Others> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    trailing: Container(
+                    trailing: SizedBox(
                       width: 100,
-                      child: TextField(
-                        controller: timeTextControllers[index],
-                        readOnly: true,
-                        onTap: () => displayTimeDialog(
-                            context, timeTextControllers[index]),
-                        textAlign: TextAlign.center,
+                      child: Form(
+                        key: _formKeytime,
+                        child: TextFormField(
+                          controller: timeTextControllers[index],
+                          readOnly: true,
+                          onTap: () => displayTimeDialog(
+                              context, timeTextControllers[index]),
+                          textAlign: TextAlign.center,
+                          validator: (title) => title != null && title.isEmpty
+                              ? 'The Time cannot be empty'
+                              : null,
+                        ),
                       ),
                     ),
                   ),
@@ -202,14 +217,20 @@ class _OthersState extends State<Others> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    trailing: Container(
+                    trailing: SizedBox(
                       width: 100,
-                      child: TextField(
-                        controller: flow_textcontroller[index],
-                        keyboardType: TextInputType.number,
-                        // onTap: () => displayTimeDialog(
-                        //     context, timeTextControllers[index]),
-                        textAlign: TextAlign.center,
+                      child: Form(
+                        key: _formKeyflow,
+                        child: TextFormField(
+                          controller: flow_textcontroller[index],
+                          keyboardType: TextInputType.number,
+                          // onTap: () => displayTimeDialog(
+                          //     context, timeTextControllers[index]),
+                          textAlign: TextAlign.center,
+                          validator: (title) => title != null && title.isEmpty
+                              ? 'The Flow cannot be empty'
+                              : null,
+                        ),
                       ),
                     ),
                   ),
@@ -220,12 +241,18 @@ class _OthersState extends State<Others> {
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         )),
-                    trailing: Container(
+                    trailing: SizedBox(
                       width: 100,
-                      child: TextField(
-                        controller: pressure_textcontroller[index],
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
+                      child: Form(
+                        key: _formKeypressure,
+                        child: TextFormField(
+                          controller: pressure_textcontroller[index],
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          validator: (title) => title != null && title.isEmpty
+                              ? 'The Pressure cannot be empty'
+                              : null,
+                        ),
                       ),
                     ),
                   ),
@@ -236,20 +263,19 @@ class _OthersState extends State<Others> {
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         )),
-                    trailing: Container(
+                    trailing: SizedBox(
                         width: 100,
                         child: SwitchListTile(
                           onChanged: (bool isOn) {
                             setState(() {
-                              switch_on_off = isOn;
+                              cycRst_textcontroller[index] = isOn;
                             });
                           },
-                          value: switch_on_off,
+                          value: cycRst_textcontroller[index],
                           activeColor: Colors.white60,
                           activeTrackColor: Colors.green,
                           inactiveThumbColor: Colors.white60,
                           inactiveTrackColor: Colors.red,
-                          secondary: switch_on_off ? Text('On') : Text('Off'),
                         )),
                   ),
                   ListTile(
@@ -257,7 +283,29 @@ class _OthersState extends State<Others> {
                       padding: const EdgeInsets.only(
                           top: 0, left: 40, right: 40, bottom: 0),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(
+                              'valvelistmap----------------------start---------------------------------------');
+                          print(valvelistmap);
+                          setState(() {
+                            if (_formKeytime.currentState!.validate() &&
+                                _formKeyflow.currentState!.validate() &&
+                                _formKeypressure.currentState!.validate()) {
+                              valvelistmap[index];
+                              valvelistmap[index]['time'] =
+                                  timeTextControllers[index].text;
+                              valvelistmap[index]['flow'] =
+                                  flow_textcontroller[index].text;
+                              valvelistmap[index]['pressure'] =
+                                  pressure_textcontroller[index].text;
+                              valvelistmap[index]['cyclicRst'] =
+                                  cycRst_textcontroller[index];
+                            }
+                          });
+                          print(
+                              'valvelistmap----------------------end---------------------------------------');
+                          print(valvelistmap);
+                        },
                         child: const Text('save'),
                       ),
                     ),

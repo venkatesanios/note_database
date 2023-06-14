@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_database/Provider/test_provider.dart';
-import 'package:note_database/page/Ohome.dart';
 import 'package:note_database/page/login_page.dart';
 import 'package:note_database/src/DismissKeyboard.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
             ),
           ),
-          home: LoginPage(),
+          home: const LoginPage(),
         ),
       );
 }

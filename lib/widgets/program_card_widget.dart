@@ -51,7 +51,7 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
     return Card(
       color: Colors.lightGreen.shade300,
       child: Container(
-        constraints: BoxConstraints(minHeight: 100),
+        constraints: const BoxConstraints(minHeight: 100),
         padding: const EdgeInsets.all(8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -68,7 +68,7 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   child: IconButton(
                     onPressed: _showMultiSelect,
@@ -85,7 +85,7 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
