@@ -18,17 +18,18 @@ class ProgramListWidget extends StatefulWidget {
 }
 
 class _ProgramListWidgetState extends State<ProgramListWidget> {
-  List<String> _Selecteditem = [];
+  List<Note> _Selecteditem = [];
 
   void _showMultiSelect() async {
-    final List<String>? results = await showDialog(
+    final List<Note>? results = await showDialog(
       context: context,
       builder: (BuildContext context) {
-        return MultiSelection(
+        final clickedProgram = widget.notes[widget.index];
+         return MultiSelection(
             items: widget.notes
                 .where((element) => element.id != widget.notes[widget.index].id)
-                .map((e) => e.title)
-                .toList());
+                .map((e) => e)
+                .toList(),clickedProgram: clickedProgram,);
       },
     );
     // Update UI

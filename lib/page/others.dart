@@ -94,39 +94,39 @@ class _OthersState extends State<Others> {
   void _showMultiSelect(List<String> item, int index) async {
     print('first---------------->');
     print(valvelistmap);
-    final List<String>? results = await showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return MultiSelection(items: item);
-      },
-    );
+    // final List<String>? results = await showDialog(
+    //   context: context,
+    //   builder: (BuildContext context) {
+    //    // return MultiSelection(items: item);
+    //   },
+    // );
     // Update UI
-    if (results != null) {
-      setState(() {
-        _Selecteditem = results;
-        for (var element in _Selecteditem) {
-          int changeindex =
-              valvelistmap.indexWhere((item) => item["name"] == element);
+    // if (results != null) {
+    //   setState(() {
+    //     _Selecteditem = results;
+    //     for (var element in _Selecteditem) {
+    //       int changeindex =
+    //           valvelistmap.indexWhere((item) => item["name"] == element);
 
-          Map<String, dynamic> copyvalve = valvelistmap[index];
-          valvelistmap[changeindex]['time'] = copyvalve['time'];
-          valvelistmap[changeindex]['flow'] = copyvalve['flow'];
-          valvelistmap[changeindex]['pressure'] = copyvalve['pressure'];
-          valvelistmap[changeindex]['cyclicRst'] = copyvalve['cyclicRst'];
+    //       Map<String, dynamic> copyvalve = valvelistmap[index];
+    //       valvelistmap[changeindex]['time'] = copyvalve['time'];
+    //       valvelistmap[changeindex]['flow'] = copyvalve['flow'];
+    //       valvelistmap[changeindex]['pressure'] = copyvalve['pressure'];
+    //       valvelistmap[changeindex]['cyclicRst'] = copyvalve['cyclicRst'];
 
-          cycRst_textcontroller[changeindex] =
-              valvelistmap[changeindex]['cyclicRst'];
-          timeTextControllers[changeindex].text =
-              valvelistmap[changeindex]['time'];
-          flow_textcontroller[changeindex].text =
-              valvelistmap[changeindex]['flow'].toString();
-          pressure_textcontroller[changeindex].text =
-              valvelistmap[changeindex]['pressure'].toString();
-        }
-      });
-      print('last---------------->');
-      print(valvelistmap);
-    }
+    //       cycRst_textcontroller[changeindex] =
+    //           valvelistmap[changeindex]['cyclicRst'];
+    //       timeTextControllers[changeindex].text =
+    //           valvelistmap[changeindex]['time'];
+    //       flow_textcontroller[changeindex].text =
+    //           valvelistmap[changeindex]['flow'].toString();
+    //       pressure_textcontroller[changeindex].text =
+    //           valvelistmap[changeindex]['pressure'].toString();
+    //     }
+    //   });
+    //   print('last---------------->');
+    //   print(valvelistmap);
+    // }
   }
 
   @override

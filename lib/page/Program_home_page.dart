@@ -207,10 +207,10 @@ class _NotesPageState extends State<NotesPage> {
                 title: const Text('Duplicate create'),
                 onTap: () {
                   //
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DuplicatePage()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const DuplicatePage()));
                 },
               ),
               const Divider(

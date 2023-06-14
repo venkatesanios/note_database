@@ -7,7 +7,6 @@ import '../model/note.dart';
 class AddEditNotePage extends StatefulWidget {
   final Note? note;
 
-
   const AddEditNotePage({
     Key? key,
     this.note,
@@ -43,7 +42,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('edit'),
-          actions: [buildButton(),deleteButton()],
+          actions: [buildButton(), deleteButton()],
         ),
         body: Form(
           key: _formKey,
@@ -102,14 +101,15 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       Navigator.of(context).pop();
     }
   }
-  Widget deleteButton() => IconButton(
-    icon: const Icon(Icons.delete),
-    onPressed: () async {
-    //  await NotesDatabase.instance.delete(widget.note!.id);
 
-      Navigator.of(context).pop();
-    },
-  );
+  Widget deleteButton() => IconButton(
+        icon: const Icon(Icons.delete),
+        onPressed: () async {
+          //  await NotesDatabase.instance.delete(widget.note!.id);
+
+          Navigator.of(context).pop();
+        },
+      );
   Future updateNote() async {
     final note = widget.note!.copy(
       isImportant: isImportant,
