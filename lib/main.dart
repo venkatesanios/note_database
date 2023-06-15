@@ -7,7 +7,7 @@ import 'package:note_database/src/DismissKeyboard.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
-  ValveMapSF();
+  // ValveMapSF();
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

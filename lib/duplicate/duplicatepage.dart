@@ -63,7 +63,6 @@ class _DuplicatePageState extends State<DuplicatePage> {
       'cyclicRst': false,
     },
   ];
-
   Future<void> saveListInSharedPreferences(
       List<Map<String, dynamic>> list) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -92,16 +91,23 @@ class _DuplicatePageState extends State<DuplicatePage> {
 
   void retrieveSharedData() async {
     valvelistmap = await retrievedshared();
-    updateValvaModel();
+
+    if (valvelistmap.isNotEmpty) {
+      updateValvaModel();
+    }
+    print('valvelistmapif$valvelistmap');
   }
 
   @override
   void initState() {
     super.initState();
-    ExpandedList = List.generate(valvelistmap.length, (index) => false);
+
     retrieveSharedData();
 
     updateValvaModel();
+
+    ExpandedList = List.generate(valvelistmap.length, (index) => false);
+
     for (int i = 0; i < valvelistmap.length; i++) {
       timeTextControllers.add(TextEditingController());
       flow_textcontroller.add(TextEditingController());

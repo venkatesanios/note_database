@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ValveMapSF {
-  List<Map<String, dynamic>> valvelistmap = [
+  List<Map<String, dynamic>> valvelistmap = [];
+
+  List<Map<String, dynamic>> valvelistmap1 = [
     {
       'name': 'Valve 1',
       'time': '08:51',
@@ -34,9 +36,10 @@ class ValveMapSF {
     },
   ];
 
-  Future<void> saveListInSharedPreferences() async {
+  Future<void> saveListInSharedPreferences(
+      List<Map<String, dynamic>> list) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String jsonString = jsonEncode(valvelistmap);
+    String jsonString = jsonEncode(list);
     await prefs.setString('valvelistmap', jsonString);
   }
 
@@ -53,58 +56,22 @@ class ValveMapSF {
     }
   }
 
-  // Save the list in shared preferences
-  void saveshared() {
-    saveListInSharedPreferences();
-  }
-
-  // Retrieve the list from shared preferences
   Future<List<Map<String, dynamic>>> retrievedshared() async {
     List<Map<String, dynamic>> retrievedList =
         await getListFromSharedPreferences();
     return retrievedList;
   }
 
-  String encode(List<Map<String, dynamic>> data) {
-    return json.encode(data);
-  }
+  void retrieveSharedData() async {
+    valvelistmap = await retrievedshared();
 
-  List<Map<String, dynamic>> decode(String jsonString) {
-    List<dynamic> jsonData = json.decode(jsonString);
-    return jsonData.map((item) => Map<String, dynamic>.from(item)).toList();
-  }
-
-  saveval() async {
-    List<Map<String, dynamic>> dataList = [
-      {'name': 'John', 'age': 25},
-      {'name': 'Jane', 'age': 30},
-    ];
-
-    String jsonString = encode(dataList);
-
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    await prefs.setString('dataList', jsonString);
-
-    List<Map<String, dynamic>> dataListq = await retrieveDataList();
-  }
-
-  void storeDataList(List<Map<String, dynamic>> dataList) async {
-    String jsonString = json.encode(dataList);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('valvelistmap', jsonString);
-  }
-
-  Future<List<Map<String, dynamic>>> retrieveDataList() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? jsonString = prefs.getString('valvelistmap');
-    if (jsonString != null) {
-      List<dynamic> jsonData = json.decode(jsonString);
-      List<Map<String, dynamic>> decodedList =
-          jsonData.map((item) => Map<String, dynamic>.from(item)).toList();
-      return decodedList;
-    } else {
-      return [];
+    if (valvelistmap.isEmpty) {
+      valvelistmap = valvelistmap1;
     }
+    print('valvelistmapif$valvelistmap');
+  }
+
+  Future<void> updateValvaModel() async {
+    await saveListInSharedPreferences(valvelistmap);
   }
 }

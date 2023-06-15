@@ -23,6 +23,7 @@ INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManife
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:1:1-58:12
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:1:1-58:12
 MERGED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:1:1-58:12
+MERGED from [:shared_preferences_android] D:\venkatesan\sql\note_database\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler_android] D:\venkatesan\sql\note_database\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:speech_to_text] D:\venkatesan\sql\note_database\build\speech_to_text\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
@@ -123,6 +124,8 @@ uses-sdk
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml
+MERGED from [:shared_preferences_android] D:\venkatesan\sql\note_database\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:shared_preferences_android] D:\venkatesan\sql\note_database\build\shared_preferences_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] D:\venkatesan\sql\note_database\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:permission_handler_android] D:\venkatesan\sql\note_database\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:speech_to_text] D:\venkatesan\sql\note_database\build\speech_to_text\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41

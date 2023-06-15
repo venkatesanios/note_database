@@ -4,7 +4,6 @@ import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
-// This widget is reusable
 class MultiSelection extends StatefulWidget {
   final List<String> items;
   const MultiSelection({Key? key, required this.items}) : super(key: key);
@@ -13,11 +12,9 @@ class MultiSelection extends StatefulWidget {
 }
 
 class _MultiSelectState extends State<MultiSelection> {
-  // this variable holds the selected items
   final List<String> _selectedItems = [];
+  bool _selectAllFlag = false;
 
-  /// This function is triggered when a checkbox is checked or unchecked
-  /// this function get two paramerers string itemvalue of array elements and isselected value
   void _itemChange(String itemValue, bool isSelected) {
     setState(() {
       isSelected
@@ -26,15 +23,23 @@ class _MultiSelectState extends State<MultiSelection> {
     });
   }
 
-  // this function is called when the Cancel button is pressed
   void _cancel() {
     Navigator.pop(context);
   }
 
-// this function is called when the Submit button is tapped
   void _submit() {
-    // Navigator.pop(context, _selectedItems);
     alertanimation(context, _selectedItems);
+  }
+
+  void _toggleSelectAll() {
+    setState(() {
+      if (_selectedItems.length == widget.items.length) {
+        _selectedItems.clear();
+      } else {
+        _selectedItems.clear();
+        _selectedItems.addAll(widget.items);
+      }
+    });
   }
 
   alertanimation(BuildContext context, List prglist) {
@@ -63,6 +68,8 @@ class _MultiSelectState extends State<MultiSelection> {
 
   @override
   Widget build(BuildContext context) {
+    bool selectAll = _selectedItems.length == widget.items.length;
+
     return AlertDialog(
       title: const Text('Create Duplicate Program'),
       content: SingleChildScrollView(
@@ -81,6 +88,11 @@ class _MultiSelectState extends State<MultiSelection> {
         TextButton(
           onPressed: _cancel,
           child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: _toggleSelectAll,
+          // child: Text(_selectAllFlag ? 'Clear All' : 'Select All'),
+          child: Text(selectAll ? 'Clear All' : 'Select All'),
         ),
         ElevatedButton(
           onPressed: _submit,
