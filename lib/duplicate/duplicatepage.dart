@@ -29,7 +29,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
   final _formKeypressure = GlobalKey<FormState>();
   late List<DupligateValveSet> valveModel;
 
-  List<Map<String, dynamic>> valvelistmapcheck = [
+  List<Map<String, dynamic>> valvelistmap = [
     {
       'name': 'Valve 1',
       'time': '08:51',
@@ -59,7 +59,8 @@ class _DuplicatePageState extends State<DuplicatePage> {
       'cyclicRst': false,
     },
   ];
-  List<Map<String, dynamic>> valvelistmap = [];
+
+  ///  List<Map<String, dynamic>> valvelistmap = [];
 
   Future<void> saveListInSharedPreferences(
       List<Map<String, dynamic>> list) async {
@@ -96,14 +97,14 @@ class _DuplicatePageState extends State<DuplicatePage> {
   @override
   void initState() {
     super.initState();
-    void main() async {
-      valvelistmap = await getListFromSharedPreferences();
-      if (valvelistmap == null) {
-        valvelistmap = valvelistmapcheck;
-      }
-      print('valvelistmap');
-      print(valvelistmap);
-    }
+    // void main() async {
+    //   valvelistmap = await getListFromSharedPreferences();
+    //   if (valvelistmap == null) {
+    //     valvelistmap = valvelistmapcheck;
+    //   }
+    print('valvelistmap');
+    print(valvelistmap);
+    // }
 
     updateValvaModel();
     for (int i = 0; i < valvelistmap.length; i++) {
