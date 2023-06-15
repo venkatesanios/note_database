@@ -15,6 +15,7 @@ class DuplicatePage extends StatefulWidget {
 }
 
 class _DuplicatePageState extends State<DuplicatePage> {
+  List<bool> ExpandedList = [];
   TextEditingController typetext = TextEditingController();
   List<String> _Selecteditem = [];
   final List<int> _Selecteditemindex = [];
@@ -24,10 +25,13 @@ class _DuplicatePageState extends State<DuplicatePage> {
   List<TextEditingController> pressure_textcontroller = [];
   List<bool> cycRst_textcontroller = [];
   bool switch_on_off = false;
-  final _formKeytime = GlobalKey<FormState>();
-  final _formKeyflow = GlobalKey<FormState>();
-  final _formKeypressure = GlobalKey<FormState>();
+
   late List<DupligateValveSet> valveModel;
+  int? selectedTileIndex;
+  List<GlobalKey<State<StatefulWidget>>> expansionTileKeys = [];
+  List<GlobalKey<FormState>> _formKeytime1 = [];
+  List<GlobalKey<FormState>> _formKeyflow = [];
+  List<GlobalKey<FormState>> _formKeypressure = [];
 
   List<Map<String, dynamic>> valvelistmap = [
     {
@@ -60,8 +64,6 @@ class _DuplicatePageState extends State<DuplicatePage> {
     },
   ];
 
-  ///  List<Map<String, dynamic>> valvelistmap = [];
-
   Future<void> saveListInSharedPreferences(
       List<Map<String, dynamic>> list) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -82,29 +84,22 @@ class _DuplicatePageState extends State<DuplicatePage> {
     }
   }
 
-  // Save the list in shared preferences
-  void saveshared(List<Map<String, dynamic>> list) async {
-    await saveListInSharedPreferences(list);
-  }
-
-  // Retrieve the list from shared preferences
   Future<List<Map<String, dynamic>>> retrievedshared() async {
     List<Map<String, dynamic>> retrievedList =
         await getListFromSharedPreferences();
     return retrievedList;
   }
 
+  void retrieveSharedData() async {
+    valvelistmap = await retrievedshared();
+    updateValvaModel();
+  }
+
   @override
   void initState() {
     super.initState();
-    // void main() async {
-    //   valvelistmap = await getListFromSharedPreferences();
-    //   if (valvelistmap == null) {
-    //     valvelistmap = valvelistmapcheck;
-    //   }
-    print('valvelistmap');
-    print(valvelistmap);
-    // }
+    ExpandedList = List.generate(valvelistmap.length, (index) => false);
+    retrieveSharedData();
 
     updateValvaModel();
     for (int i = 0; i < valvelistmap.length; i++) {
@@ -116,6 +111,10 @@ class _DuplicatePageState extends State<DuplicatePage> {
       timeTextControllers[i].text = valvelistmap[i]['time'];
       flow_textcontroller[i].text = valvelistmap[i]['flow'].toString();
       pressure_textcontroller[i].text = valvelistmap[i]['pressure'].toString();
+      expansionTileKeys.add(GlobalKey<State<StatefulWidget>>());
+      _formKeytime1.add(GlobalKey<FormState>());
+      _formKeyflow.add(GlobalKey<FormState>());
+      _formKeypressure.add(GlobalKey<FormState>());
     }
   }
 
@@ -148,12 +147,12 @@ class _DuplicatePageState extends State<DuplicatePage> {
     }
   }
 
-  void updateValvaModel() {
+  void updateValvaModel() async {
     valveModel = [];
     for (int i = 0; i < valvelistmap.length; i++) {
       valveModel.add(DupligateValveSet.fromJson(valvelistmap[i]));
     }
-    saveshared(valvelistmap);
+    await saveListInSharedPreferences(valvelistmap);
   }
 
   List<dynamic> getmapvalues(int index) {
@@ -217,8 +216,8 @@ class _DuplicatePageState extends State<DuplicatePage> {
   @override
   Widget build(BuildContext context) {
     TestProvider name = Provider.of<TestProvider>(context, listen: true);
-    List<bool> isExpandedList =
-        List.generate(valvelistmap.length, (index) => false);
+
+    int selectedTile = 0;
 
     typetext.text = name.name;
     return Scaffold(
@@ -229,6 +228,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
         ),
       ),
       body: ListView.separated(
+        key: Key(selectedTile.toString()),
         padding: const EdgeInsets.all(16),
         itemCount: valveModel.length,
         separatorBuilder: (context, index) => const Divider(
@@ -236,180 +236,160 @@ class _DuplicatePageState extends State<DuplicatePage> {
           color: Colors.white30,
         ),
         itemBuilder: (context, index) {
-          return ExpansionTile(
-            //  collapsedBackgroundColor: Colors.amber,
-            backgroundColor: isExpandedList[index]
-                ? const Color(0xFF587B2E)
-                : const Color.fromARGB(255, 92, 117, 61),
-            title: Text(
-              valveModel[index].name,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            subtitle: const Text('details'),
-            trailing: IconButton(
-              onPressed: () {
-                // setState(() {
-                _showMultiSelect(getnamevalues(index), index);
-                //  updateValvaModel();
-                //  });
-              },
-              icon: const Icon(Icons.merge),
-            ),
-            onExpansionChanged: (value) {
-              getmapvalues(index);
-              setState(() {
-                isExpandedList[index] = value;
-              });
-            },
-            children: <Widget>[
-              Column(
-                children: [
-                  ListTile(
-                    title: const Text(
-                      'Time',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    trailing: SizedBox(
-                      width: 100,
-                      child: Form(
-                        key: _formKeytime,
-                        child: TextFormField(
-                          controller: TextEditingController(
-                              text: valveModel[index].time),
-                          readOnly: true,
-                          onTap: () {
-                            setState(() {
-                              displayTimeDialog1(context, valvelistmap[index]);
-                              updateValvaModel();
-                            });
-                          },
-                          textAlign: TextAlign.center,
-                          validator: (title) => title != null && title.isEmpty
-                              ? 'The Time cannot be empty'
-                              : null,
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      'Flow',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    trailing: SizedBox(
-                      width: 100,
-                      child: Form(
-                        key: _formKeyflow,
-                        child: TextFormField(
-                          controller: TextEditingController(
-                              text: valveModel[index].flow.toString()),
-                          keyboardType: TextInputType.number,
-                          // onTap: () => displayTimeDialog(
-                          //     context, timeTextControllers[index]),
-                          textAlign: TextAlign.center,
-                          validator: (title) => title != null && title.isEmpty
-                              ? 'The Flow cannot be empty'
-                              : null,
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('Pressure',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    trailing: SizedBox(
-                      width: 100,
-                      child: Form(
-                        key: _formKeypressure,
-                        child: TextFormField(
-                          controller: TextEditingController(
-                              text: valveModel[index].pressure),
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          validator: (title) => title != null && title.isEmpty
-                              ? 'The Pressure cannot be empty'
-                              : null,
-                        ),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text('CyclicRST',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        )),
-                    trailing: SizedBox(
-                        width: 100,
-                        child: SwitchListTile(
-                          onChanged: (bool isOn) {
-                            setState(() {
-                              valvelistmap[index]['cyclicRst'] = isOn;
-                              updateValvaModel();
-                            });
-                          },
-                          value: valveModel[index].cyclicRst,
-                          activeColor: Colors.white60,
-                          activeTrackColor: Colors.green,
-                          inactiveThumbColor: Colors.white60,
-                          inactiveTrackColor: Colors.red,
-                          //secondary: switch_on_off ? const Text('On') : const Text('Off'),
-                        )),
-                  ),
-                  // ListTile(
-                  //   title: Padding(
-                  //     padding: const EdgeInsets.only(
-                  //         top: 0, left: 40, right: 40, bottom: 0),
-                  //     child: ElevatedButton(
-                  //       onPressed: () {
-                  //         print(
-                  //             'valvelistmap----------------------start---------------------------------------');
-                  //         print(valvelistmap);
-                  //         setState(() {
-                  //           if (_formKeytime.currentState!.validate() &&
-                  //               _formKeyflow.currentState!.validate() &&
-                  //               _formKeypressure.currentState!.validate()) {
-                  //             valvelistmap[index];
-                  //             valvelistmap[index]['time'] =
-                  //                 timeTextControllers[index].text;
-                  //             valvelistmap[index]['flow'] =
-                  //                 flow_textcontroller[index].text;
-                  //             valvelistmap[index]['pressure'] =
-                  //                 pressure_textcontroller[index].text;
-                  //             valvelistmap[index]['cyclicRst'] =
-                  //                 cycRst_textcontroller[index];
-                  //           }
+          return InkWell(
+            onTap: () {},
+            child: ExpansionTile(
+              //  collapsedBackgroundColor: Colors.amber,
+              key: expansionTileKeys[index],
 
-                  //           updateValvaModel();
-                  //         });
-                  //         print(
-                  //             'valvelistmap----------------------end---------------------------------------');
-                  //         print(valvelistmap);
-                  //       },
-                  //       child: const Text('save'),
-                  //     ),
-                  //   ),
-                  // ),
-                ],
+              backgroundColor: ExpandedList[index]
+                  ? const Color(0xFF587B2E)
+                  : const Color.fromARGB(255, 92, 117, 61),
+              title: Text(
+                valveModel[index].name,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ],
+              subtitle: const Text('details'),
+              trailing: IconButton(
+                onPressed: () {
+                  _showMultiSelect(getnamevalues(index), index);
+                },
+                icon: const Icon(Icons.merge),
+              ),
+              onExpansionChanged: (value) {
+                ExpandedList.fillRange(0, ExpandedList.length, false);
+                setState(() {});
+              },
+              initiallyExpanded: ExpandedList[index],
+              children: <Widget>[
+                Column(
+                  children: [
+                    ListTile(
+                      title: const Text(
+                        'Time',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      trailing: SizedBox(
+                        width: 100,
+                        child: Form(
+                          key: _formKeytime1[index],
+                          child: TextFormField(
+                            controller: TextEditingController(
+                                text: valveModel[index].time),
+                            readOnly: true,
+                            onTap: () {
+                              setState(() {
+                                displayTimeDialog1(
+                                    context, valvelistmap[index]);
+                                updateValvaModel();
+                              });
+                            },
+                            textAlign: TextAlign.center,
+                            validator: (title) => title != null && title.isEmpty
+                                ? 'The Time cannot be empty'
+                                : null,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: const Text(
+                        'Flow',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      trailing: SizedBox(
+                        width: 100,
+                        child: Form(
+                          key: _formKeyflow[index],
+                          child: TextFormField(
+                            controller: TextEditingController(
+                                text: valveModel[index].flow.toString()),
+                            keyboardType: TextInputType.number,
+                            onChanged: (value) {},
+                            onFieldSubmitted: (value) {
+                              setState(() {
+                                valvelistmap[index]['flow'] =
+                                    int.tryParse(value) ?? 0;
+                                updateValvaModel();
+                              });
+                            },
+                            textAlign: TextAlign.center,
+                            validator: (title) => title != null && title.isEmpty
+                                ? 'The Flow cannot be empty'
+                                : null,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: const Text('Pressure',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      trailing: SizedBox(
+                        width: 100,
+                        child: Form(
+                          key: _formKeypressure[index],
+                          child: TextFormField(
+                            controller: TextEditingController(
+                                text: valveModel[index].pressure),
+                            keyboardType: TextInputType.number,
+                            onFieldSubmitted: (value) {
+                              setState(() {
+                                valvelistmap[index]['pressure'] =
+                                    value.toString();
+                                updateValvaModel();
+                              });
+                            },
+                            textAlign: TextAlign.center,
+                            validator: (title) => title != null && title.isEmpty
+                                ? 'The Pressure cannot be empty'
+                                : null,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      title: const Text('CyclicRST',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      trailing: SizedBox(
+                          width: 100,
+                          child: SwitchListTile(
+                            onChanged: (bool isOn) {
+                              setState(() {
+                                valvelistmap[index]['cyclicRst'] = isOn;
+                                updateValvaModel();
+                              });
+                            },
+                            value: valveModel[index].cyclicRst,
+                            activeColor: Colors.white60,
+                            activeTrackColor: Colors.green,
+                            inactiveThumbColor: Colors.white60,
+                            inactiveTrackColor: Colors.red,
+                          )),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),
