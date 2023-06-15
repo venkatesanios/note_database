@@ -223,7 +223,7 @@ class _DuplicatePageState extends State<DuplicatePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Provider Check',
+          'duplicate Check',
           textAlign: TextAlign.center,
         ),
       ),
