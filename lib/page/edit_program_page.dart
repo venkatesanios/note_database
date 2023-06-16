@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:note_database/widgets/program_Add_widget.dart';
 
-import '../db/node_database.dart';
+import '../db/program_database.dart';
 import '../model/note.dart';
 
 class AddEditNotePage extends StatefulWidget {
-  final Note? note;
+  final Program? program;
 
   const AddEditNotePage({
     Key? key,
-    this.note,
+    this.program,
   }) : super(key: key);
   @override
   _AddEditNotePageState createState() => _AddEditNotePageState();
@@ -29,13 +29,13 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
   void initState() {
     super.initState();
 
-    isImportant = widget.note?.isImportant ?? false;
-    number = widget.note?.number ?? 0;
-    title = widget.note?.title ?? '';
-    description = widget.note?.description ?? '';
-    setting1 = widget.note?.setting1 ?? '';
-    setting2 = widget.note?.setting2 ?? '';
-    setting3 = widget.note?.setting3 ?? '';
+    isImportant = widget.program?.isImportant ?? false;
+    number = widget.program?.number ?? 0;
+    title = widget.program?.title ?? '';
+    description = widget.program?.description ?? '';
+    setting1 = widget.program?.setting1 ?? '';
+    setting2 = widget.program?.setting2 ?? '';
+    setting3 = widget.program?.setting3 ?? '';
   }
 
   @override
@@ -90,7 +90,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
     final isValid = _formKey.currentState!.validate();
 
     if (isValid) {
-      final isUpdating = widget.note != null;
+      final isUpdating = widget.program != null;
 
       if (isUpdating) {
         await updateNote();
@@ -105,13 +105,13 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
   Widget deleteButton() => IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () async {
-          //  await NotesDatabase.instance.delete(widget.note!.id);
+          //  await ProgramDatabase.instance.delete(widget.note!.id);
 
           Navigator.of(context).pop();
         },
       );
   Future updateNote() async {
-    final note = widget.note!.copy(
+    final note = widget.program!.copy(
       isImportant: isImportant,
       number: number,
       title: title,
@@ -121,11 +121,11 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       setting3: setting3,
     );
 
-    await NotesDatabase.instance.update(note);
+    await ProgramDatabase.instance.update(note);
   }
 
   Future addNote() async {
-    final note = Note(
+    final note = Program(
       title: title,
       isImportant: true,
       number: number,
@@ -136,6 +136,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       setting3: setting3,
     );
 
-    await NotesDatabase.instance.create(note);
+    await ProgramDatabase.instance.create(note);
   }
 }

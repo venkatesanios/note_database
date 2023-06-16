@@ -17,7 +17,7 @@ Future main() async {
       providers: [
         ChangeNotifierProvider(create: ((context) => TestProvider()))
       ],
-      child:  MyApp(),
+      child:  const MyApp(),
     ),
   );
 }

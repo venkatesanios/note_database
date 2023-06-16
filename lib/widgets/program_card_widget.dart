@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/checklist_boxArray.dart';
+import 'package:note_database/src/PermissionCheck.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ProgramListWidget extends StatefulWidget {
   const ProgramListWidget({
     Key? key,
-    required this.notes,
+    required this.programs,
     required this.index,
   }) : super(key: key);
 
-  final List<Note> notes;
+  final List<Program> programs;
   final int index;
 
   @override
@@ -18,16 +20,16 @@ class ProgramListWidget extends StatefulWidget {
 }
 
 class _ProgramListWidgetState extends State<ProgramListWidget> {
-  List<Note> _Selecteditem = [];
+  List<Program> _Selecteditem = [];
 
   void _showMultiSelect() async {
-    final List<Note>? results = await showDialog(
+    final List<Program>? results = await showDialog(
       context: context,
       builder: (BuildContext context) {
-        final clickedProgram = widget.notes[widget.index];
+        final clickedProgram = widget.programs[widget.index];
          return MultiSelection(
-            items: widget.notes
-                .where((element) => element.id != widget.notes[widget.index].id)
+            items: widget.programs
+                .where((element) => element.id != widget.programs[widget.index].id)
                 .map((e) => e)
                 .toList(),clickedProgram: clickedProgram,);
       },
@@ -44,9 +46,9 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
   Widget build(BuildContext context) {
     /// Pick colors from the accent colors based on index
     final date =
-        DateFormat.yMMMd().format(widget.notes[widget.index].createdTime);
+        DateFormat.yMMMd().format(widget.programs[widget.index].createdTime);
     final times =
-        DateFormat.Hms().format(widget.notes[widget.index].createdTime);
+        DateFormat.Hms().format(widget.programs[widget.index].createdTime);
     final time = "$date-$times";
 
     return Card(
@@ -62,7 +64,7 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  widget.notes[widget.index].title,
+                  widget.programs[widget.index].title,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
@@ -79,7 +81,7 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
               ],
             ),
             Text(
-              widget.notes[widget.index].description,
+              widget.programs[widget.index].description,
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 20,

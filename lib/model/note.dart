@@ -1,6 +1,7 @@
 const String tableNotes = 'notes';
+const String tableValves = 'valves';
 
-class NoteFields {
+class ProgramFields {
   static final List<String> values = [
     /// Add all fields
     id, isImportant, number, title, description, time, setting1, setting2,
@@ -18,7 +19,7 @@ class NoteFields {
   static const String setting3 = 'setting3';
 }
 
-class Note {
+class Program {
   final int? id;
   final bool isImportant;
   final int number;
@@ -29,7 +30,7 @@ class Note {
   final String setting2;
   final String setting3;
 
-  const Note({
+  const Program({
     this.id,
     required this.isImportant,
     required this.number,
@@ -41,7 +42,7 @@ class Note {
     required this.setting3,
   });
 
-  Note copy({
+  Program copy({
     int? id,
     bool? isImportant,
     int? number,
@@ -52,7 +53,7 @@ class Note {
     String? setting2,
     String? setting3,
   }) =>
-      Note(
+      Program(
         id: id ?? this.id,
         isImportant: isImportant ?? this.isImportant,
         number: number ?? this.number,
@@ -64,27 +65,27 @@ class Note {
         setting3: setting3 ?? this.setting3,
       );
 
-  static Note fromJson(Map<String, Object?> json) => Note(
-        id: json[NoteFields.id] as int?,
-        isImportant: json[NoteFields.isImportant] == 1,
-        number: json[NoteFields.number] as int,
-        title: json[NoteFields.title] as String,
-        description: json[NoteFields.description] as String,
-        createdTime: DateTime.parse(json[NoteFields.time] as String),
-        setting1: json[NoteFields.setting1] as String,
-        setting2: json[NoteFields.setting2] as String,
-        setting3: json[NoteFields.setting3] as String,
+  static Program fromJson(Map<String, Object?> json) => Program(
+        id: json[ProgramFields.id] as int?,
+        isImportant: json[ProgramFields.isImportant] == 1,
+        number: json[ProgramFields.number] as int,
+        title: json[ProgramFields.title] as String,
+        description: json[ProgramFields.description] as String,
+        createdTime: DateTime.parse(json[ProgramFields.time] as String),
+        setting1: json[ProgramFields.setting1] as String,
+        setting2: json[ProgramFields.setting2] as String,
+        setting3: json[ProgramFields.setting3] as String,
       );
 
   Map<String, Object?> toJson() => {
-        NoteFields.id: id,
-        NoteFields.title: title,
-        NoteFields.isImportant: isImportant ? 1 : 0,
-        NoteFields.number: number,
-        NoteFields.description: description,
-        NoteFields.time: createdTime.toIso8601String(),
-        NoteFields.setting1: setting1,
-        NoteFields.setting2: setting2,
-        NoteFields.setting3: setting3,
+        ProgramFields.id: id,
+        ProgramFields.title: title,
+        ProgramFields.isImportant: isImportant ? 1 : 0,
+        ProgramFields.number: number,
+        ProgramFields.description: description,
+        ProgramFields.time: createdTime.toIso8601String(),
+        ProgramFields.setting1: setting1,
+        ProgramFields.setting2: setting2,
+        ProgramFields.setting3: setting3,
       };
 }

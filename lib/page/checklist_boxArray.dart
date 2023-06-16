@@ -5,12 +5,12 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:note_database/model/note.dart';
 
-import '../db/node_database.dart';
+import '../db/program_database.dart';
 
 // This widget is reusable
 class MultiSelection extends StatefulWidget {
-  final List<Note> items;
-  final Note clickedProgram;
+  final List<Program> items;
+  final Program clickedProgram;
 
   const MultiSelection({Key? key, required this.items, required this.clickedProgram}) : super(key: key);
   @override
@@ -19,12 +19,11 @@ class MultiSelection extends StatefulWidget {
 
 class _MultiSelectState extends State<MultiSelection> {
   // this variable holds the selected items
-  final List<Note> _selectedItems = [];
-   Note? clickedProgram;
+  final List<Program> _selectedItems = [];
 
   /// This function is triggered when a checkbox is checked or unchecked
   /// this function get two paramerers string itemvalue of array elements and isselected value
-  void _itemChange(Note itemValue, bool isSelected) {
+  void _itemChange(Program itemValue, bool isSelected) {
     setState(() {
       isSelected
           ? _selectedItems.add(itemValue)
@@ -39,21 +38,21 @@ class _MultiSelectState extends State<MultiSelection> {
 
 // this function is called when the Submit button is tapped
   void _submit() {
-    if (clickedProgram != null) {
+    if (widget.clickedProgram != null) {
     // Navigator.pop(context, _selectedItems);
    List selectitem = [];
     _selectedItems.forEach((element) async{
-Note note;
+Program note;
 note = element.copy(
-  setting1: clickedProgram!.setting1,
-  setting2: clickedProgram!.setting2,
-  setting3: clickedProgram!.setting3,
-  isImportant: clickedProgram!.isImportant,
-  number: clickedProgram!.number,
-  description: clickedProgram!.description
+  setting1: widget.clickedProgram!.setting1,
+  setting2: widget.clickedProgram!.setting2,
+  setting3: widget.clickedProgram!.setting3,
+  isImportant: widget.clickedProgram!.isImportant,
+  number: widget.clickedProgram!.number,
+  description: widget.clickedProgram!.description
 );
 selectitem.add(element.title);
- await NotesDatabase.instance.update(note);
+ await ProgramDatabase.instance.update(note);
 
  alertanimation(context, selectitem);
      });

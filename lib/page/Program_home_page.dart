@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:note_database/db/node_database.dart';
+import 'package:note_database/db/program_database.dart';
 import 'package:note_database/duplicate/duplicatepage.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/TextToVoice.dart';
@@ -24,7 +24,7 @@ class NotesPage extends StatefulWidget {
 }
 
 class _NotesPageState extends State<NotesPage> {
-  late List<Note> notes;
+  late List<Program> programs;
   bool isLoading = false;
   FlutterTts flutterTts = FlutterTts();
   SpeakText speaktovoice = SpeakText();
@@ -39,13 +39,13 @@ class _NotesPageState extends State<NotesPage> {
 
   @override
   void dispose() {
-    NotesDatabase.instance.close();
+    ProgramDatabase.instance.close();
     super.dispose();
   }
 
   Future refreshNotes() async {
     setState(() => isLoading = true);
-    notes = await NotesDatabase.instance.readAllNotes();
+    programs = await ProgramDatabase.instance.readAllNotes();
     setState(() => isLoading = false);
   }
 
@@ -238,7 +238,7 @@ class _NotesPageState extends State<NotesPage> {
         body: Center(
           child: isLoading
               ? const CircularProgressIndicator()
-              : notes.isEmpty
+              : programs.isEmpty
                   ? const Text(
                       'No Programs available',
                       style: TextStyle(color: Colors.white, fontSize: 24),
@@ -262,21 +262,21 @@ class _NotesPageState extends State<NotesPage> {
     return ListView.separated(
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, index) {
-        final note = notes[index];
+        final program = programs[index];
         return GestureDetector(
           onTap: () async {
             await Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => NoteDetailPage(noteId: note.id!),
+              builder: (context) => ProgramDetailPage(noteId: program.id!),
             ));
             refreshNotes();
           },
-          child: ProgramListWidget(notes: notes, index: index),
+          child: ProgramListWidget(programs: programs, index: index),
         );
       },
       separatorBuilder: (context, index) => const Divider(
         height: 1,
       ),
-      itemCount: notes.length,
+      itemCount: programs.length,
     );
   }
 }

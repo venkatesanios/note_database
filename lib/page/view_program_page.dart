@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:note_database/db/node_database.dart';
+import 'package:note_database/db/program_database.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/edit_program_page.dart';
 
-class NoteDetailPage extends StatefulWidget {
+class ProgramDetailPage extends StatefulWidget {
   final int noteId;
 
-  const NoteDetailPage({
+  const ProgramDetailPage({
     Key? key,
     required this.noteId,
   }) : super(key: key);
 
   @override
-  _NoteDetailPageState createState() => _NoteDetailPageState();
+  _ProgramDetailPageState createState() => _ProgramDetailPageState();
 }
 
-class _NoteDetailPageState extends State<NoteDetailPage> {
-  late Note note;
+class _ProgramDetailPageState extends State<ProgramDetailPage> {
+  late Program program;
   bool isLoading = false;
 
   @override
@@ -30,7 +30,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Future refreshNote() async {
     setState(() => isLoading = true);
 
-    note = await NotesDatabase.instance.readNote(widget.noteId);
+    program = await ProgramDatabase.instance.readNote(widget.noteId);
 
     setState(() => isLoading = false);
     print(widget);
@@ -50,7 +50,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   children: [
                     Text(
-                      note.title,
+                      program.title,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -59,30 +59,30 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      DateFormat.yMMMd().format(note.createdTime),
+                      DateFormat.yMMMd().format(program.createdTime),
                       style: const TextStyle(color: Colors.white38),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      note.description,
+                      program.description,
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      note.setting1,
+                      program.setting1,
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      note.setting2,
+                      program.setting2,
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      note.setting3,
+                      program.setting3,
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
@@ -97,7 +97,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
         if (isLoading) return;
 
         await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => AddEditNotePage(note: note),
+          builder: (context) => AddEditNotePage(program: program),
         ));
 
         refreshNote();
@@ -128,7 +128,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Widget deleteButton() => IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () async {
-          await NotesDatabase.instance.delete(widget.noteId);
+          await ProgramDatabase.instance.delete(widget.noteId);
 
           Navigator.of(context).pop();
         },
