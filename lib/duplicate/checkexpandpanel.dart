@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_database/src/Permission.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class Expandpanellis extends StatefulWidget {
@@ -36,8 +37,12 @@ class _ExpandpanellisState extends State<Expandpanellis> {
                 },
                 body: Column(
                   children: [
-                    const ElevatedButton(
-                      onPressed: requestCameraPermission,
+                    ElevatedButton(
+                      onPressed: () {
+                        PermissionClass permission = PermissionClass();
+                        permission.checkPermission(
+                            context, Permission.contacts);
+                      },
                       child: Text(
                         "Request all Permission",
                         style: TextStyle(

@@ -130,12 +130,12 @@
 56    tools:ignore="ScopedStorage" />
 57    -->
 58    <queries>
-58-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:79:5-83:11
+58-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:78:5-82:11
 59        <intent>
-59-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:80:5-82:14
+59-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:79:5-81:14
 60            <action android:name="android.intent.action.TTS_SERVICE" />
-60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:81:9-68
-60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:81:17-65
+60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:80:9-68
+60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:80:17-65
 61        </intent>
 62    </queries> <!-- suppress DeprecatedClassUsageInspection -->
 63    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
