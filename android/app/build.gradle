@@ -28,6 +28,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     namespace "com.example.note_database"
     compileSdkVersion flutter.compileSdkVersion
+    //compileSdkVersion localProperties.getProperty('flutter.compileSdkVersion').toInteger()
+
    // ndkVersion flutter.ndkVersion
     ndkVersion "25.1.8937393"
 

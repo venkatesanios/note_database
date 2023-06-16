@@ -13,184 +13,272 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:2-63
-15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:5:19-61
-16    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:2-63
+15-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:19-61
+16    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- Permissions options for the `contacts` group -->
 16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:3:2-68
 16-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:3:19-66
-17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:2-67
-17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:4:19-65
-18    <uses-permission android:name="android.permission.BLUETOOTH" />
-18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:2-64
-18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:6:19-62
-19    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:2-70
-19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:19-68
-20    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:2-72
-20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:19-70
-21    <!--
-22 <uses-feature android:name="android.hardware.camera"
-23                  android:required="true" />
-24  <uses-permission android:name="android.permission.CAMERA" />
-25  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-26  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-27  <uses-permission
-28    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-29    android:maxSdkVersion="29"
-30    tools:ignore="ScopedStorage" />
-31    -->
-32    <queries>
-32-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:19:5-23:11
-33        <intent>
-33-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:20:5-22:14
-34            <action android:name="android.intent.action.TTS_SERVICE" />
-34-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:21:9-68
-34-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:21:17-65
-35        </intent>
-36    </queries> <!-- suppress DeprecatedClassUsageInspection -->
-37    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-37-->[androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
-37-->[androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
-38
-39    <permission
-39-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
-40        android:name="com.example.note_database.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-40-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
-41        android:protectionLevel="signature" />
-41-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
-42
-43    <uses-permission android:name="com.example.note_database.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-43-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
-43-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
-44
-45    <application
-46        android:name="android.app.Application"
-47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-47-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
-48        android:debuggable="true"
-49        android:icon="@mipmap/ic_launcher"
-50        android:label="note_database"
-51        android:requestLegacyExternalStorage="true" >
-52        <activity
-53            android:name="com.example.note_database.MainActivity"
-54            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-55            android:exported="true"
-56            android:hardwareAccelerated="true"
-57            android:launchMode="singleTop"
-58            android:requestLegacyExternalStorage="true"
-59            android:theme="@style/LaunchTheme"
-60            android:windowSoftInputMode="adjustResize" >
-61
-62            <!--
-63                 Specifies an Android theme to apply to this Activity as soon as
-64                 the Android process has started. This theme is visible to the user
-65                 while the Flutter UI initializes. After that, this theme continues
-66                 to determine the Window background behind the Flutter UI.
-67            -->
-68            <meta-data
-69                android:name="io.flutter.embedding.android.NormalTheme"
-70                android:resource="@style/NormalTheme" />
-71
-72            <intent-filter>
-73                <action android:name="android.intent.action.MAIN" />
-74
-75                <category android:name="android.intent.category.LAUNCHER" />
-76            </intent-filter>
-77        </activity>
-78        <!--
-79             Don't delete the meta-data below.
-80             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-81        -->
-82        <meta-data
-83            android:name="flutterEmbedding"
-84            android:value="2" />
-85
-86        <provider
-86-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
-87            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-87-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
-88            android:authorities="com.example.note_database.flutter.image_provider"
-88-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
-89            android:exported="false"
-89-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
-90            android:grantUriPermissions="true" >
-90-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
-91            <meta-data
-91-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
-92                android:name="android.support.FILE_PROVIDER_PATHS"
-92-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
-93                android:resource="@xml/flutter_image_picker_file_paths" />
-93-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
-94        </provider>
-95
-96        <uses-library
-96-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-97            android:name="androidx.window.extensions"
-97-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-98            android:required="false" />
-98-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-99        <uses-library
-99-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-100            android:name="androidx.window.sidecar"
-100-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-101            android:required="false" />
-101-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-102
-103        <provider
-103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
-104            android:name="androidx.startup.InitializationProvider"
-104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:25:13-67
-105            android:authorities="com.example.note_database.androidx-startup"
-105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:26:13-68
-106            android:exported="false" >
-106-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:27:13-37
-107            <meta-data
-107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-108                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-109                android:value="androidx.startup" />
-109-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-110        </provider>
+17    <uses-permission android:name="android.permission.READ_CONTACTS" />
+17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:2-68
+17-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:7:19-66
+18    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:2-69
+18-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:8:19-67
+19    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- Permissions options for the `storage` group -->
+19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:9:2-67
+19-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:9:19-65
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:12:2-76
+20-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:12:19-74
+21    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Permissions options for the `camera` group -->
+21-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:13:2-77
+21-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:13:19-75
+22    <uses-permission android:name="android.permission.CAMERA" /> <!-- Permissions options for the `sms` group -->
+22-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:16:2-61
+22-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:16:19-59
+23    <uses-permission android:name="android.permission.SEND_SMS" />
+23-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:19:2-63
+23-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:19:19-61
+24    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:20:2-66
+24-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:20:19-64
+25    <uses-permission android:name="android.permission.READ_SMS" />
+25-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:21:2-63
+25-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:21:19-61
+26    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+26-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:22:2-71
+26-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:22:19-69
+27    <uses-permission android:name="android.permission.RECEIVE_MMS" /> <!-- Permissions options for the `phone` group -->
+27-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:23:2-66
+27-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:23:19-64
+28    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+28-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:26:2-71
+28-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:26:19-69
+29    <uses-permission android:name="android.permission.CALL_PHONE" />
+29-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:27:2-65
+29-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:27:19-63
+30    <uses-permission android:name="android.permission.ADD_VOICEMAIL" />
+30-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:28:2-68
+30-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:28:19-66
+31    <uses-permission android:name="android.permission.USE_SIP" />
+31-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:29:2-62
+31-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:29:19-60
+32    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+32-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:30:2-68
+32-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:30:19-66
+33    <uses-permission android:name="android.permission.WRITE_CALL_LOG" /> <!-- Permissions options for the `calendar` group -->
+33-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:31:2-69
+33-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:31:19-67
+34    <uses-permission android:name="android.permission.READ_CALENDAR" />
+34-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:34:2-69
+34-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:34:19-66
+35    <uses-permission android:name="android.permission.WRITE_CALENDAR" /> <!-- Permissions options for the `location` group -->
+35-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:35:2-70
+35-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:35:19-67
+36    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+36-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:38:2-76
+36-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:38:19-73
+37    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+37-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:39:2-78
+37-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:39:19-75
+38    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- Permissions options for the `microphone` or `speech` group -->
+38-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:40:2-82
+38-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:40:19-79
+39    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Permissions options for the `sensors` group -->
+39-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:43:2-68
+39-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:43:19-65
+40    <uses-permission android:name="android.permission.BODY_SENSORS" /> <!-- Permissions options for the `accessMediaLocation` group -->
+40-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:46:2-68
+40-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:46:19-65
+41    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" /> <!-- Permissions options for the `activityRecognition` group -->
+41-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:49:2-77
+41-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:49:19-74
+42    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" /> <!-- Permissions options for the `ignoreBatteryOptimizations` group -->
+42-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:52:2-76
+42-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:52:19-73
+43    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" /> <!-- Permissions options for the `bluetooth` group -->
+43-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:55:2-92
+43-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:55:19-89
+44    <uses-permission android:name="android.permission.BLUETOOTH" />
+44-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:58:2-65
+44-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:58:19-62
+45    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+45-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:59:2-70
+45-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:59:19-67
+46    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+46-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:60:2-75
+46-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:60:19-72
+47    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- Permissions options for the `manage external storage` group -->
+47-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:61:2-73
+47-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:61:19-70
+48    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- Permissions options for the `system alert windows` group -->
+48-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:64:2-79
+48-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:64:19-76
+49    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- Permissions options for the `request install packages` group -->
+49-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:67:2-75
+49-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:67:19-72
+50    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- Permissions options for the `access notification policy` group -->
+50-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:70:2-80
+50-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:70:19-77
+51    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+51-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:73:2-81
+51-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:73:19-79
+52    <!--
+53 <uses-permission
+54    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+55    android:maxSdkVersion="29"
+56    tools:ignore="ScopedStorage" />
+57    -->
+58    <queries>
+58-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:79:5-83:11
+59        <intent>
+59-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:80:5-82:14
+60            <action android:name="android.intent.action.TTS_SERVICE" />
+60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:81:9-68
+60-->D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:81:17-65
+61        </intent>
+62    </queries> <!-- suppress DeprecatedClassUsageInspection -->
+63    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+63-->[androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+63-->[androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+64
+65    <permission
+65-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+66        android:name="com.example.note_database.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+66-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+67        android:protectionLevel="signature" />
+67-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+68
+69    <uses-permission android:name="com.example.note_database.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+69-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+69-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+70
+71    <application
+72        android:name="android.app.Application"
+73        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+73-->[androidx.core:core:1.10.1] C:\Users\ASROCK\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+74        android:debuggable="true"
+75        android:icon="@mipmap/ic_launcher"
+76        android:label="note_database"
+77        android:requestLegacyExternalStorage="true" >
+78        <activity
+79            android:name="com.example.note_database.MainActivity"
+80            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+81            android:exported="true"
+82            android:hardwareAccelerated="true"
+83            android:launchMode="singleTop"
+84            android:requestLegacyExternalStorage="true"
+85            android:theme="@style/LaunchTheme"
+86            android:windowSoftInputMode="adjustResize" >
+87
+88            <!--
+89                 Specifies an Android theme to apply to this Activity as soon as
+90                 the Android process has started. This theme is visible to the user
+91                 while the Flutter UI initializes. After that, this theme continues
+92                 to determine the Window background behind the Flutter UI.
+93            -->
+94            <meta-data
+95                android:name="io.flutter.embedding.android.NormalTheme"
+96                android:resource="@style/NormalTheme" />
+97
+98            <intent-filter>
+99                <action android:name="android.intent.action.MAIN" />
+100
+101                <category android:name="android.intent.category.LAUNCHER" />
+102            </intent-filter>
+103        </activity>
+104        <!--
+105             Don't delete the meta-data below.
+106             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+107        -->
+108        <meta-data
+109            android:name="flutterEmbedding"
+110            android:value="2" />
 111
-112        <receiver
-112-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-113            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-113-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-114            android:directBootAware="false"
-114-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-115            android:enabled="true"
-115-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-116            android:exported="true"
-116-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-117            android:permission="android.permission.DUMP" >
-117-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-118            <intent-filter>
-118-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-119                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-119-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-119-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-120            </intent-filter>
-121            <intent-filter>
-121-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-122                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-122-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-123            </intent-filter>
-124            <intent-filter>
-124-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-125                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-125-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-125-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-126            </intent-filter>
-127            <intent-filter>
-127-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-128                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-129            </intent-filter>
-130        </receiver>
-131    </application>
-132
-133</manifest>
+112        <provider
+112-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+113            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+113-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
+114            android:authorities="com.example.note_database.flutter.image_provider"
+114-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
+115            android:exported="false"
+115-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+116            android:grantUriPermissions="true" >
+116-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+117            <meta-data
+117-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
+118                android:name="android.support.FILE_PROVIDER_PATHS"
+118-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+119                android:resource="@xml/flutter_image_picker_file_paths" />
+119-->[:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
+120        </provider>
+121
+122        <uses-library
+122-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+123            android:name="androidx.window.extensions"
+123-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+124            android:required="false" />
+124-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+125        <uses-library
+125-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+126            android:name="androidx.window.sidecar"
+126-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+127            android:required="false" />
+127-->[androidx.window:window:1.0.0-beta04] C:\Users\ASROCK\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+128
+129        <provider
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:24:9-32:20
+130            android:name="androidx.startup.InitializationProvider"
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:25:13-67
+131            android:authorities="com.example.note_database.androidx-startup"
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:26:13-68
+132            android:exported="false" >
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:27:13-37
+133            <meta-data
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+134                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+135                android:value="androidx.startup" />
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+136        </provider>
+137
+138        <receiver
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+139            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+140            android:directBootAware="false"
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+141            android:enabled="true"
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+142            android:exported="true"
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+143            android:permission="android.permission.DUMP" >
+143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+144            <intent-filter>
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+145                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+146            </intent-filter>
+147            <intent-filter>
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+148                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+148-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+148-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+149            </intent-filter>
+150            <intent-filter>
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+151                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+152            </intent-filter>
+153            <intent-filter>
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+154                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+154-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+154-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\635b1770925726da461e843c0a3c6641\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+155            </intent-filter>
+156        </receiver>
+157    </application>
+158
+159</manifest>

@@ -16,6 +16,8 @@ import 'package:note_database/src/texttovoice.dart';
 import 'package:note_database/widgets/program_card_widget.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+import '../duplicate/checkexpandpanel.dart';
+
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
 
@@ -211,6 +213,21 @@ class _NotesPageState extends State<NotesPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const DuplicatePage()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('Expandpanellis create'),
+                onTap: () {
+                  //
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Expandpanellis()));
                 },
               ),
               const Divider(

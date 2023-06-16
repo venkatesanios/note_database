@@ -91,7 +91,6 @@ class _MultiSelectState extends State<MultiSelection> {
         ),
         ElevatedButton(
           onPressed: _toggleSelectAll,
-          // child: Text(_selectAllFlag ? 'Clear All' : 'Select All'),
           child: Text(selectAll ? 'Clear All' : 'Select All'),
         ),
         ElevatedButton(
