@@ -1,7 +1,8 @@
+import 'package:note_database/model/valvemodel.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../model/note.dart';
+import '../model/programmodel.dart';
 
 class ProgramDatabase {
   static final ProgramDatabase instance = ProgramDatabase._init();
@@ -44,6 +45,19 @@ CREATE TABLE $tableNotes (
   )
 ''');
 
+    /// create valve table
+    await db.execute('''
+CREATE TABLE $tableValves ( 
+  ${ValveFields.id} $idType, 
+  ${ValveFields.programid} $integerType,
+  ${ValveFields.programname} $textType,
+  ${ValveFields.valvename} $textType,
+  ${ValveFields.time} $textType,
+  ${ValveFields.flow} $textType,
+  ${ValveFields.pressure} $textType,
+  ${ValveFields.cycrst} $textType
+  )
+''');
   }
 
   Future<Program> create(Program program) async {
@@ -99,6 +113,62 @@ CREATE TABLE $tableNotes (
     return await db.delete(
       tableNotes,
       where: '${ProgramFields.id} = ?',
+      whereArgs: [id],
+    );
+  }
+
+  ///valve
+
+  Future<Valve> createvalve(Valve valve) async {
+    final db = await instance.database;
+
+    final id = await db.insert(tableValves, valve.toJson());
+    return valve.copy(id: id);
+  }
+
+  Future<Valve> readvalve(int id) async {
+    final db = await instance.database;
+
+    final maps = await db.query(
+      tableValves,
+      columns: ValveFields.values,
+      where: '${ValveFields.id} = ?',
+      whereArgs: [id],
+    );
+
+    if (maps.isNotEmpty) {
+      return Valve.fromJson(maps.first);
+    } else {
+      throw Exception('ID $id not found');
+    }
+  }
+
+  Future<List<Valve>> readAllValve() async {
+    final db = await instance.database;
+
+    const orderBy = '${ValveFields.time} ASC';
+
+    final result = await db.query(tableValves, orderBy: orderBy);
+
+    return result.map((json) => Valve.fromJson(json)).toList();
+  }
+
+  Future<int> updatevalve(Valve valve) async {
+    final db = await instance.database;
+    return db.update(
+      tableValves,
+      valve.toJson(),
+      where: '${ValveFields.id} = ?',
+      whereArgs: [valve.id],
+    );
+  }
+
+  Future<int> deletevalve(int id) async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableValves,
+      where: '${ValveFields.id} = ?',
       whereArgs: [id],
     );
   }

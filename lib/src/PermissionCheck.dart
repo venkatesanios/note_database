@@ -7,10 +7,8 @@ class PermissionClass {
     final status = await permission.request();
 
     if (status.isGranted) {
-      print('Permission Granted: ${permission.toString()}');
     } else {
       if (await permission.request().isGranted) {
-        print('Permission was granted: ${permission.toString()}');
       } else {
         showAlertDialog(context);
       }
