@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:note_database/db/program_database.dart';
 import 'package:note_database/model/programmodel.dart';
-import 'package:note_database/page/AddEditValvePage.dart';
+import 'package:note_database/page/add_editvalve_page.dart';
 import 'package:note_database/page/edit_program_page.dart';
 
 class ProgramDetailPage extends StatefulWidget {
@@ -93,7 +93,7 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
                       onPressed: () async {
                         await Navigator.of(context).push(
                           MaterialPageRoute(
-                              builder: (context) => const AddEditValvePage()),
+                              builder: (context) =>  AddEditValvePage(program: program,)),
                         );
                       },
                     ),

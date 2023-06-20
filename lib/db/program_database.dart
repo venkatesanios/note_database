@@ -62,9 +62,19 @@ CREATE TABLE $tableValves (
 
   Future<Program> create(Program program) async {
     final db = await instance.database;
-
+print(program);
     final id = await db.insert(tableNotes, program.toJson());
     return program.copy(id: id);
+  }
+
+  
+  Future<Valve> createvalve(Valve valve) async {
+    final db = await instance.database;
+    print('valve.toJson:');
+    print(valve.toJson());
+    final id = await db.insert(tableValves, valve.toJson());
+    print('id:$id');
+    return valve.copy(id: id);
   }
 
   Future<Program> readNote(int id) async {
@@ -119,14 +129,6 @@ CREATE TABLE $tableValves (
 
   ///valve
 
-  Future<Valve> createvalve(Valve valve) async {
-    final db = await instance.database;
-    print('valve.toJson:');
-    print(valve.toJson());
-    final id = await db.insert(tableValves, valve.toJson());
-    print('id:$id');
-    return valve.copy(id: id);
-  }
 
   Future<Valve> readvalve(int id) async {
     final db = await instance.database;

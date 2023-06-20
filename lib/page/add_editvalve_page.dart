@@ -1,15 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:note_database/model/programmodel.dart';
 import 'package:note_database/model/valvemodel.dart';
-import 'package:note_database/widgets/Add_valve_Widget.dart';
+import 'package:note_database/widgets/add_valve_widget.dart';
 
 import '../db/program_database.dart';
 
 class AddEditValvePage extends StatefulWidget {
   final Valve? valve;
+  final Program? program;
 
   const AddEditValvePage({
     Key? key,
     this.valve,
+    this.program,
   }) : super(key: key);
   @override
   _AddEditValvePageState createState() => _AddEditValvePageState();
@@ -31,8 +36,8 @@ class _AddEditValvePageState extends State<AddEditValvePage> {
     super.initState();
 
     id = widget.valve?.id ?? 0;
-    programid = widget.valve?.programid ?? 0;
-    programname = widget.valve?.programname ?? '';
+    programid = widget.program?.id ?? 0;
+    programname = widget.program?.title?? '';
     valvename = widget.valve?.valvename ?? '';
     time = widget.valve?.time ?? '';
     flow = widget.valve?.flow ?? '';
@@ -59,20 +64,19 @@ class _AddEditValvePageState extends State<AddEditValvePage> {
             cycrst: cycrst,
             onChangedNumber: (programid) =>
                 setState(() => this.programid = programid),
-            onChangedTitle: (valvename) =>
-                setState(() => this.valvename = valvename),
+            onChangedTitle: (valvename) => setState(() => this.valvename = valvename),
             onChangedDescription: (time) => setState(() => this.time = time),
-            onChangedSetting1: (flow) => setState(() => flow = flow),
+            onChangedSetting1: (flow) => setState(() => this.flow = flow),
             onChangedSetting2: (pressure) =>
-                setState(() => pressure = pressure),
-            onChangedSetting3: (cycrst) => setState(() => cycrst = cycrst),
+                setState(() => this.pressure = pressure),
+            onChangedSetting3: (cycrst) => setState(() => this.cycrst = cycrst),
           ),
         ),
       );
 
   Widget buildButton() {
     final isFormValid = valvename.isNotEmpty && programname.isNotEmpty;
-
+log('programname : ' + programname);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: ElevatedButton(

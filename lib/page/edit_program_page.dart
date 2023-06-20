@@ -57,7 +57,10 @@ class _AddEditProgramPageState extends State<AddEditProgramPage> {
             onChangedImportant: (isImportant) =>
                 setState(() => this.isImportant = isImportant),
             onChangedNumber: (number) => setState(() => this.number = number),
-            onChangedTitle: (title) => setState(() => this.title = title),
+            onChangedTitle: (title) {
+              print(title);
+              setState(() => this.title = title);
+            },
             onChangedDescription: (description) =>
                 setState(() => this.description = description),
             onChangedSetting1: (settings1) =>
