@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:note_database/widgets/program_Add_widget.dart';
+import 'package:note_database/model/valvemodel.dart';
+import 'package:note_database/widgets/Add_valve_Widget.dart';
 
 import '../db/program_database.dart';
-import '../model/programmodel.dart';
 
 class AddEditValvePage extends StatefulWidget {
-  final Program? program;
+  final Valve? valve;
 
   const AddEditValvePage({
     Key? key,
-    this.program,
+    this.valve,
   }) : super(key: key);
   @override
   _AddEditValvePageState createState() => _AddEditValvePageState();
@@ -17,61 +17,61 @@ class AddEditValvePage extends StatefulWidget {
 
 class _AddEditValvePageState extends State<AddEditValvePage> {
   final _formKey = GlobalKey<FormState>();
-  late bool isImportant;
-  late int number;
-  late String title;
-  late String description;
-  late String setting1;
-  late String setting2;
-  late String setting3;
+  late int id;
+  late int programid;
+  late String programname;
+  late String valvename;
+  late String time;
+  late String flow;
+  late String pressure;
+  late String cycrst;
 
   @override
   void initState() {
     super.initState();
 
-    isImportant = widget.program?.isImportant ?? false;
-    number = widget.program?.number ?? 0;
-    title = widget.program?.title ?? '';
-    description = widget.program?.description ?? '';
-    setting1 = widget.program?.setting1 ?? '';
-    setting2 = widget.program?.setting2 ?? '';
-    setting3 = widget.program?.setting3 ?? '';
+    id = widget.valve?.id ?? 0;
+    programid = widget.valve?.programid ?? 0;
+    programname = widget.valve?.programname ?? '';
+    valvename = widget.valve?.valvename ?? '';
+    time = widget.valve?.time ?? '';
+    flow = widget.valve?.flow ?? '';
+    pressure = widget.valve?.pressure ?? '';
+    cycrst = widget.valve?.cycrst ?? '';
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('edit'),
+          title: const Text('Add/Edit Valve'),
           actions: [buildButton(), deleteButton()],
         ),
         body: Form(
           key: _formKey,
-          child: ProgramFormWidget(
-            isImportant: isImportant,
-            number: number,
-            title: title,
-            description: description,
-            settings1: setting1,
-            settings2: setting2,
-            settings3: setting3,
-            onChangedImportant: (isImportant) =>
-                setState(() => this.isImportant = isImportant),
-            onChangedNumber: (number) => setState(() => this.number = number),
-            onChangedTitle: (title) => setState(() => this.title = title),
-            onChangedDescription: (description) =>
-                setState(() => this.description = description),
-            onChangedSetting1: (settings1) =>
-                setState(() => setting1 = settings1),
-            onChangedSetting2: (settings2) =>
-                setState(() => setting2 = settings2),
-            onChangedSetting3: (settings3) =>
-                setState(() => setting3 = settings3),
+          child: ValveFormWidget(
+            id: id,
+            programid: programid,
+            programname: programname,
+            valvename: valvename,
+            time: time,
+            flow: flow,
+            pressure: pressure,
+            cycrst: cycrst,
+            onChangedNumber: (programid) =>
+                setState(() => this.programid = programid),
+            onChangedTitle: (valvename) =>
+                setState(() => this.valvename = valvename),
+            onChangedDescription: (time) => setState(() => this.time = time),
+            onChangedSetting1: (flow) => setState(() => flow = flow),
+            onChangedSetting2: (pressure) =>
+                setState(() => pressure = pressure),
+            onChangedSetting3: (cycrst) => setState(() => cycrst = cycrst),
           ),
         ),
       );
 
   Widget buildButton() {
-    final isFormValid = title.isNotEmpty && description.isNotEmpty;
+    final isFormValid = valvename.isNotEmpty && programname.isNotEmpty;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
@@ -88,14 +88,15 @@ class _AddEditValvePageState extends State<AddEditValvePage> {
 
   void addOrUpdateProgram() async {
     final isValid = _formKey.currentState!.validate();
+    print('IsValid$isValid');
 
     if (isValid) {
-      final isUpdating = widget.program != null;
+      final isUpdating = widget.valve != null;
 
       if (isUpdating) {
-        await updateProgram();
+        await updateValve();
       } else {
-        await addProgram();
+        await addValve();
       }
 
       Navigator.of(context).pop();
@@ -110,32 +111,29 @@ class _AddEditValvePageState extends State<AddEditValvePage> {
           Navigator.of(context).pop();
         },
       );
-  Future updateProgram() async {
-    final note = widget.program!.copy(
-      isImportant: isImportant,
-      number: number,
-      title: title,
-      description: description,
-      setting1: setting1,
-      setting2: setting2,
-      setting3: setting3,
-    );
 
-    await ProgramDatabase.instance.update(note);
+  Future updateValve() async {
+    final updatevalve = widget.valve!.copy(
+        programid: id,
+        programname: programname,
+        valvename: valvename,
+        time: time,
+        flow: flow,
+        pressure: pressure,
+        cycrst: cycrst);
+
+    await ProgramDatabase.instance.updatevalve(updatevalve);
   }
 
-  Future addProgram() async {
-    final note = Program(
-      title: title,
-      isImportant: true,
-      number: number,
-      description: description,
-      createdTime: DateTime.now(),
-      setting1: setting1,
-      setting2: setting2,
-      setting3: setting3,
-    );
-
-    await ProgramDatabase.instance.create(note);
+  Future addValve() async {
+    final valveadd = Valve(
+        programid: programid,
+        programname: programname,
+        valvename: valvename,
+        time: time,
+        flow: flow,
+        pressure: pressure,
+        cycrst: cycrst);
+    await ProgramDatabase.instance.createvalve(valveadd);
   }
 }

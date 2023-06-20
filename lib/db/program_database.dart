@@ -121,8 +121,10 @@ CREATE TABLE $tableValves (
 
   Future<Valve> createvalve(Valve valve) async {
     final db = await instance.database;
-
+    print('valve.toJson:');
+    print(valve.toJson());
     final id = await db.insert(tableValves, valve.toJson());
+    print('id:$id');
     return valve.copy(id: id);
   }
 

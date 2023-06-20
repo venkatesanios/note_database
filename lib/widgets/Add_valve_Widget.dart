@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class valveFormWidget extends StatelessWidget {
-  final bool? isImportant;
-  final int? number;
-  final String? title;
-  final String? description;
-  final String? settings1;
-  final String? settings2;
-  final String? settings3;
+class ValveFormWidget extends StatelessWidget {
+  final int? id;
+  final int? programid;
+  final String? programname;
+  final String? valvename;
+  final String? time;
+  final String? flow;
+  final String? pressure;
+  final String? cycrst;
 
-  final ValueChanged<bool> onChangedImportant;
   final ValueChanged<int> onChangedNumber;
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedSetting1;
@@ -17,16 +17,16 @@ class valveFormWidget extends StatelessWidget {
   final ValueChanged<String> onChangedSetting3;
   final ValueChanged<String> onChangedDescription;
 
-  const valveFormWidget({
+  const ValveFormWidget({
     Key? key,
-    this.isImportant = false,
-    this.number = 0,
-    this.title = '',
-    this.description = '',
-    this.settings1 = '',
-    this.settings2 = '',
-    this.settings3 = '',
-    required this.onChangedImportant,
+    this.id = 0,
+    this.programid = 0,
+    this.programname = '',
+    this.valvename = '',
+    this.time = '',
+    this.flow = '',
+    this.pressure = '',
+    this.cycrst = '',
     required this.onChangedNumber,
     required this.onChangedTitle,
     required this.onChangedDescription,
@@ -42,43 +42,24 @@ class valveFormWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                children: [
-                  Switch(
-                    inactiveThumbColor: Colors.red,
-                    activeColor: Colors.green,
-                    value: isImportant ?? false,
-                    onChanged: onChangedImportant,
-                  ),
-                  Expanded(
-                    child: Slider(
-                      value: (number ?? 0).toDouble(),
-                      min: 0,
-                      max: 5,
-                      divisions: 5,
-                      onChanged: (number) => onChangedNumber(number.toInt()),
-                    ),
-                  )
-                ],
-              ),
-              buildTitle(),
+              buildValvename(),
               const SizedBox(height: 8),
-              buildDescription(),
+              buildTime(),
               const SizedBox(height: 8),
-              buildSettings1(),
+              buildFlow(),
               const SizedBox(height: 8),
-              buildSettings2(),
+              buildPressure(),
               const SizedBox(height: 8),
-              buildSettings3(),
+              buildCycRst(),
               const SizedBox(height: 8),
             ],
           ),
         ),
       );
 
-  Widget buildTitle() => TextFormField(
+  Widget buildValvename() => TextFormField(
         maxLines: 1,
-        initialValue: title,
+        initialValue: valvename,
         style: const TextStyle(
           color: Colors.white70,
           fontWeight: FontWeight.bold,
@@ -86,7 +67,7 @@ class valveFormWidget extends StatelessWidget {
         ),
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'Program name',
+          hintText: 'Valve name:',
           hintStyle: TextStyle(color: Colors.white60),
         ),
         validator: (title) =>
@@ -94,13 +75,13 @@ class valveFormWidget extends StatelessWidget {
         onChanged: onChangedTitle,
       );
 
-  Widget buildDescription() => TextFormField(
+  Widget buildTime() => TextFormField(
         maxLines: 1,
-        initialValue: description,
+        initialValue: time,
         style: const TextStyle(color: Colors.white60, fontSize: 18),
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'Zone Name ',
+          hintText: 'Time: ',
           hintStyle: TextStyle(color: Colors.white60),
         ),
         validator: (title) => title != null && title.isEmpty
@@ -109,13 +90,13 @@ class valveFormWidget extends StatelessWidget {
         onChanged: onChangedDescription,
       );
 
-  Widget buildSettings1() => TextFormField(
+  Widget buildFlow() => TextFormField(
         maxLines: 1,
-        initialValue: settings1,
+        initialValue: flow,
         style: const TextStyle(color: Colors.white60, fontSize: 18),
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'Settings1: ',
+          hintText: 'Flow: ',
           hintStyle: TextStyle(color: Colors.white60),
         ),
         validator: (title) => title != null && title.isEmpty
@@ -124,13 +105,13 @@ class valveFormWidget extends StatelessWidget {
         onChanged: onChangedSetting1,
       );
 
-  Widget buildSettings2() => TextFormField(
+  Widget buildPressure() => TextFormField(
         maxLines: 1,
-        initialValue: settings2,
+        initialValue: pressure,
         style: const TextStyle(color: Colors.white60, fontSize: 18),
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'Settings2:  ',
+          hintText: 'Pressure:  ',
           hintStyle: TextStyle(color: Colors.white60),
         ),
         validator: (title) => title != null && title.isEmpty
@@ -139,13 +120,13 @@ class valveFormWidget extends StatelessWidget {
         onChanged: onChangedSetting2,
       );
 
-  Widget buildSettings3() => TextFormField(
+  Widget buildCycRst() => TextFormField(
         maxLines: 1,
-        initialValue: settings3,
+        initialValue: cycrst,
         style: const TextStyle(color: Colors.white60, fontSize: 18),
         decoration: const InputDecoration(
           border: OutlineInputBorder(),
-          hintText: 'Settings3:',
+          hintText: 'Cyclic Restart:',
           hintStyle: TextStyle(color: Colors.white60),
         ),
         validator: (title) => title != null && title.isEmpty
