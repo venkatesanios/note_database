@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:note_database/model/note.dart';
+import 'package:note_database/model/programmodel.dart';
 import 'package:note_database/page/checklist_boxArray.dart';
-import 'package:note_database/src/PermissionCheck.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class ProgramListWidget extends StatefulWidget {
   const ProgramListWidget({
@@ -27,11 +25,14 @@ class _ProgramListWidgetState extends State<ProgramListWidget> {
       context: context,
       builder: (BuildContext context) {
         final clickedProgram = widget.programs[widget.index];
-         return MultiSelection(
-            items: widget.programs
-                .where((element) => element.id != widget.programs[widget.index].id)
-                .map((e) => e)
-                .toList(),clickedProgram: clickedProgram,);
+        return MultiSelection(
+          items: widget.programs
+              .where(
+                  (element) => element.id != widget.programs[widget.index].id)
+              .map((e) => e)
+              .toList(),
+          clickedProgram: clickedProgram,
+        );
       },
     );
     // Update UI

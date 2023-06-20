@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:note_database/db/program_database.dart';
-import 'package:note_database/model/note.dart';
+import 'package:note_database/model/programmodel.dart';
+import 'package:note_database/page/AddEditValvePage.dart';
 import 'package:note_database/page/edit_program_page.dart';
 
 class ProgramDetailPage extends StatefulWidget {
@@ -86,6 +87,16 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
+                    FloatingActionButton(
+                      backgroundColor: Colors.black,
+                      child: const Icon(Icons.add),
+                      onPressed: () async {
+                        await Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const AddEditValvePage()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -97,7 +108,7 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
         if (isLoading) return;
 
         await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => AddEditNotePage(program: program),
+          builder: (context) => AddEditProgramPage(program: program),
         ));
 
         refreshNote();

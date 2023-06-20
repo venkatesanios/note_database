@@ -1,20 +1,17 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:note_database/db/program_database.dart';
-import 'package:note_database/duplicate/duplicatepage.dart';
-import 'package:note_database/model/note.dart';
-import 'package:note_database/page/TextToVoice.dart';
-import 'package:note_database/page/VoicetoText.dart';
-import 'package:note_database/page/others.dart';
-import 'package:note_database/page/view_program_page.dart';
+import 'package:note_database/model/programmodel.dart';
 import 'package:note_database/page/edit_program_page.dart';
 import 'package:note_database/page/imagePicker.dart';
 import 'package:note_database/page/login_page.dart';
+import 'package:note_database/page/others.dart';
+import 'package:note_database/page/view_program_page.dart';
 import 'package:note_database/src/texttovoice.dart';
 import 'package:note_database/widgets/program_card_widget.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
@@ -150,12 +147,7 @@ class _NotesPageState extends State<NotesPage> {
               ),
               ListTile(
                 title: const Text('Voice-To-Text'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const VoicetoText()));
-                },
+                onTap: () {},
               ),
               const Divider(
                 height: 1.0,
@@ -164,13 +156,7 @@ class _NotesPageState extends State<NotesPage> {
               ),
               ListTile(
                 title: const Text('Text to Voice'),
-                onTap: () {
-                  //
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Texttovoice()));
-                },
+                onTap: () {},
               ),
               const Divider(
                 height: 1.0,
@@ -250,7 +236,8 @@ class _NotesPageState extends State<NotesPage> {
           child: const Icon(Icons.add),
           onPressed: () async {
             await Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const AddEditNotePage()),
+              MaterialPageRoute(
+                  builder: (context) => const AddEditProgramPage()),
             );
             speaktovoice.speak('welcome To Program Page ');
             refreshNotes();

@@ -3,7 +3,7 @@ import 'dart:async';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:note_database/model/note.dart';
+import 'package:note_database/model/programmodel.dart';
 
 import '../db/program_database.dart';
 
@@ -12,7 +12,9 @@ class MultiSelection extends StatefulWidget {
   final List<Program> items;
   final Program clickedProgram;
 
-  const MultiSelection({Key? key, required this.items, required this.clickedProgram}) : super(key: key);
+  const MultiSelection(
+      {Key? key, required this.items, required this.clickedProgram})
+      : super(key: key);
   @override
   State<MultiSelection> createState() => _MultiSelectState();
 }
@@ -39,32 +41,29 @@ class _MultiSelectState extends State<MultiSelection> {
 // this function is called when the Submit button is tapped
   void _submit() {
     if (widget.clickedProgram != null) {
-    // Navigator.pop(context, _selectedItems);
-   List selectitem = [];
-    _selectedItems.forEach((element) async{
-Program note;
-note = element.copy(
-  setting1: widget.clickedProgram!.setting1,
-  setting2: widget.clickedProgram!.setting2,
-  setting3: widget.clickedProgram!.setting3,
-  isImportant: widget.clickedProgram!.isImportant,
-  number: widget.clickedProgram!.number,
-  description: widget.clickedProgram!.description
-);
-selectitem.add(element.title);
- await ProgramDatabase.instance.update(note);
+      // Navigator.pop(context, _selectedItems);
+      List selectitem = [];
+      _selectedItems.forEach((element) async {
+        Program note;
+        note = element.copy(
+            setting1: widget.clickedProgram.setting1,
+            setting2: widget.clickedProgram.setting2,
+            setting3: widget.clickedProgram.setting3,
+            isImportant: widget.clickedProgram.isImportant,
+            number: widget.clickedProgram.number,
+            description: widget.clickedProgram.description);
+        selectitem.add(element.title);
+        await ProgramDatabase.instance.update(note);
 
- alertanimation(context, selectitem);
-     });
-     
+        alertanimation(context, selectitem);
+      });
+    } else {
+      alertanimation(context, ['No item Select']);
+    }
   }
-  else{
-    alertanimation(context, ['No item Select']);
-  }
-}
 
   alertanimation(BuildContext context, List prglist) {
-        print('alertanimation');
+    print('alertanimation');
     print(prglist);
     String prg = '';
     prg = prglist.join('\n');

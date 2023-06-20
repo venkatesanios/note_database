@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NoteFormWidget extends StatelessWidget {
+class ProgramFormWidget extends StatelessWidget {
   final bool? isImportant;
   final int? number;
   final String? title;
@@ -17,7 +17,7 @@ class NoteFormWidget extends StatelessWidget {
   final ValueChanged<String> onChangedSetting3;
   final ValueChanged<String> onChangedDescription;
 
-  const NoteFormWidget({
+  const ProgramFormWidget({
     Key? key,
     this.isImportant = false,
     this.number = 0,
