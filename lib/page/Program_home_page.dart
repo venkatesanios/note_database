@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:note_database/Scaner/qr_code.dart';
+import 'package:note_database/Scaner/qrcode_generator.dart';
+import 'package:note_database/Scaner/qrcoded/qrmain.dart';
 import 'package:note_database/db/node_database.dart';
 import 'package:note_database/duplicate/duplicatepage.dart';
 import 'package:note_database/model/note.dart';
@@ -237,12 +239,40 @@ class _NotesPageState extends State<NotesPage> {
                 thickness: 1.0,
               ),
               ListTile(
-                title: const Text('QR Code Scaner'),
+                title: const Text('GenerateQRCode'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GenerateQRCode()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('QR Code Scaner'), //MyHomeQRcode
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const QRcodeScanner()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('QR Code all'), //MyHomeQRcode
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyHomeQRcode()));
                 },
               ),
               const Divider(

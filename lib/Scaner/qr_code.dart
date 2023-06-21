@@ -22,6 +22,11 @@ class _QRcodeScannerState extends State<QRcodeScanner>
 
   @override
   Widget build(BuildContext context) {
+    final scanWindow = Rect.fromCenter(
+      center: MediaQuery.of(context).size.center(Offset.zero),
+      width: 200,
+      height: 200,
+    );
     return Scaffold(
       backgroundColor: Colors.black,
       body: Builder(
@@ -31,6 +36,7 @@ class _QRcodeScannerState extends State<QRcodeScanner>
               MobileScanner(
                 controller: controller,
                 fit: BoxFit.contain,
+                scanWindow: scanWindow,
                 onDetect: (barcode) {
                   setState(() {
                     this.barcode = barcode;
