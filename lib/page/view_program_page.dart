@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:note_database/db/program_database.dart';
 import 'package:note_database/model/programmodel.dart';
+import 'package:note_database/model/valvemodel.dart';
 import 'package:note_database/page/add_editvalve_page.dart';
 import 'package:note_database/page/edit_program_page.dart';
+import 'package:note_database/widgets/valve_widget.dart';
 
 class ProgramDetailPage extends StatefulWidget {
   final int noteId;
@@ -19,6 +21,7 @@ class ProgramDetailPage extends StatefulWidget {
 
 class _ProgramDetailPageState extends State<ProgramDetailPage> {
   late Program program;
+  late List<Valve> valve;
   bool isLoading = false;
 
   @override
@@ -32,23 +35,31 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
     setState(() => isLoading = true);
 
     program = await ProgramDatabase.instance.readNote(widget.noteId);
+    valve = await ProgramDatabase.instance.readprogramvalve(widget.noteId);
 
     setState(() => isLoading = false);
-    print(widget);
+    print(widget.noteId);
+    print('Valve---- $valve');
+    print(valve[0].valvename);
+    print(valve[1].valvename);
+    print(valve[2].valvename);
+
+    print(program.title);
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('detail'),
+          title: Text(program.title),
           actions: [AlertButton(), editButton(), deleteButton()],
         ),
         body: isLoading
             ? const Center(child: CircularProgressIndicator())
             : Padding(
                 padding: const EdgeInsets.all(12),
-                child: ListView(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       program.title,
@@ -87,19 +98,27 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
                       style:
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
-                    FloatingActionButton(
-                      backgroundColor: Colors.black,
-                      child: const Icon(Icons.add),
-                      onPressed: () async {
-                        await Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) =>  AddEditValvePage(program: program,)),
-                        );
-                      },
-                    ),
+                    const SizedBox(height: 18),
+                    //  buildNotes(),
+                    Flexible(
+                        child: Container(
+                      child: buildNotes(),
+                    ))
                   ],
                 ),
               ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          child: const Icon(Icons.add),
+          onPressed: () async {
+            await Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (context) => AddEditValvePage(
+                        program: program,
+                      )),
+            );
+          },
+        ),
       );
 
   Widget editButton() => IconButton(
@@ -144,4 +163,24 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
           Navigator.of(context).pop();
         },
       );
+  Widget buildNotes() {
+    return ListView.separated(
+      padding: const EdgeInsets.all(16),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          // onTap: () async {
+          //   await Navigator.of(context).push(MaterialPageRoute(
+          //     builder: (context) => ProgramDetailPage(noteId: program.id!),
+          //   ));
+          //   refreshNote();
+          // },
+          child: ValveListWidget(valve: valve, index: index),
+        );
+      },
+      separatorBuilder: (context, index) => const Divider(
+        height: 1,
+      ),
+      itemCount: valve.length,
+    );
+  }
 }

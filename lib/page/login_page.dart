@@ -1,11 +1,12 @@
 import 'dart:async';
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:note_database/page/Program_home_page.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:note_database/page/program_home_page.dart';
 import 'package:note_database/src/texttovoice.dart';
 import 'package:note_database/style/animationAlert.dart';
 import 'package:note_database/style/textinput_style.dart';
-import 'package:local_auth/local_auth.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,8 +31,8 @@ class _LoginPageState extends State<LoginPage> {
       );
       if (didAuthenticate == true) {
         speaktovoice.speak('Login Succes ');
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const NotesPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NotesPage()));
       }
     } catch (e) {
       print(e.toString());

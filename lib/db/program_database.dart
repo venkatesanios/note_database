@@ -62,12 +62,11 @@ CREATE TABLE $tableValves (
 
   Future<Program> create(Program program) async {
     final db = await instance.database;
-print(program);
+    print(program);
     final id = await db.insert(tableNotes, program.toJson());
     return program.copy(id: id);
   }
 
-  
   Future<Valve> createvalve(Valve valve) async {
     final db = await instance.database;
     print('valve.toJson:');
@@ -129,7 +128,6 @@ print(program);
 
   ///valve
 
-
   Future<Valve> readvalve(int id) async {
     final db = await instance.database;
 
@@ -145,6 +143,21 @@ print(program);
     } else {
       throw Exception('ID $id not found');
     }
+  }
+
+  Future<List<Valve>> readprogramvalve(int programid) async {
+    final db = await instance.database;
+
+    const orderBy = '${ValveFields.id} ASC';
+
+    final result = await db.query(
+      tableValves,
+      orderBy: orderBy,
+      where: '${ValveFields.programid} = ?',
+      whereArgs: [programid],
+    );
+
+    return result.map((json) => Valve.fromJson(json)).toList();
   }
 
   Future<List<Valve>> readAllValve() async {
