@@ -36,7 +36,8 @@ com.example.note_database.app-packaged_res-34 D:\venkatesan\sql\note_database\bu
 com.example.note_database.app-packaged_res-35 D:\venkatesan\sql\note_database\build\local_auth_android\intermediates\packaged_res\debug
 com.example.note_database.app-packaged_res-36 D:\venkatesan\sql\note_database\build\mobile_scanner\intermediates\packaged_res\debug
 com.example.note_database.app-packaged_res-37 D:\venkatesan\sql\note_database\build\permission_handler_android\intermediates\packaged_res\debug
-com.example.note_database.app-packaged_res-38 D:\venkatesan\sql\note_database\build\rive_common\intermediates\packaged_res\debug
-com.example.note_database.app-packaged_res-39 D:\venkatesan\sql\note_database\build\shared_preferences_android\intermediates\packaged_res\debug
-com.example.note_database.app-packaged_res-40 D:\venkatesan\sql\note_database\build\speech_to_text\intermediates\packaged_res\debug
-com.example.note_database.app-packaged_res-41 D:\venkatesan\sql\note_database\build\sqflite\intermediates\packaged_res\debug
+com.example.note_database.app-packaged_res-38 D:\venkatesan\sql\note_database\build\printing\intermediates\packaged_res\debug
+com.example.note_database.app-packaged_res-39 D:\venkatesan\sql\note_database\build\rive_common\intermediates\packaged_res\debug
+com.example.note_database.app-packaged_res-40 D:\venkatesan\sql\note_database\build\shared_preferences_android\intermediates\packaged_res\debug
+com.example.note_database.app-packaged_res-41 D:\venkatesan\sql\note_database\build\speech_to_text\intermediates\packaged_res\debug
+com.example.note_database.app-packaged_res-42 D:\venkatesan\sql\note_database\build\sqflite\intermediates\packaged_res\debug

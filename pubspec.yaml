@@ -48,5 +48,7 @@ flutter:
   assets:
     - assets/images/loginbg.jpg
     - assets/images/loginbgdrop.png
+    - assets/images/image.png
+
 
  

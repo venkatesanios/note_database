@@ -3,6 +3,8 @@ application
 INJECTED from D:\venkatesan\sql\note_database\android\app\src\main\AndroidManifest.xml:84:2-116:19
 MERGED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\ASROCK\.gradle\caches\transforms-3\dfde8f034b51679985fc09924c6dc617\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0] C:\Users\ASROCK\.gradle\caches\transforms-3\dfde8f034b51679985fc09924c6dc617\transformed\jetified-play-services-mlkit-barcode-scanning-18.2.0\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\ASROCK\.gradle\caches\transforms-3\66bd106c250be9f02190d447f7a4703c\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
@@ -55,6 +57,7 @@ MERGED from [:sqflite] D:\venkatesan\sql\note_database\build\sqflite\intermediat
 MERGED from [:flutter_tts] D:\venkatesan\sql\note_database\build\flutter_tts\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:rive_common] D:\venkatesan\sql\note_database\build\rive_common\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:mobile_scanner] D:\venkatesan\sql\note_database\build\mobile_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ASROCK\.gradle\caches\transforms-3\09a71f45a2f110948b735c42a8fac7af\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.mlkit:barcode-scanning:17.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\02b801be34af14974ad3e24f49aadcaa\transformed\jetified-barcode-scanning-17.1.0\AndroidManifest.xml:2:1-7:12
@@ -313,6 +316,8 @@ MERGED from [:rive_common] D:\venkatesan\sql\note_database\build\rive_common\int
 MERGED from [:rive_common] D:\venkatesan\sql\note_database\build\rive_common\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:mobile_scanner] D:\venkatesan\sql\note_database\build\mobile_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:mobile_scanner] D:\venkatesan\sql\note_database\build\mobile_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\ASROCK\.gradle\caches\transforms-3\09a71f45a2f110948b735c42a8fac7af\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -433,6 +438,16 @@ ADDED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_p
 		ADDED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
 	android:name
 		ADDED from [:image_picker_android] D:\venkatesan\sql\note_database\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+provider#net.nfet.flutter.printing.PrintFileProvider
+ADDED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+	android:grantUriPermissions
+		ADDED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+	android:authorities
+		ADDED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-68
+	android:exported
+		ADDED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+	android:name
+		ADDED from [:printing] D:\venkatesan\sql\note_database\build\printing\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-71
 uses-permission#android.permission.USE_FINGERPRINT
 ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\ASROCK\.gradle\caches\transforms-3\29a53b35c072e5e16e15ef7c62078a12\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
 	android:name

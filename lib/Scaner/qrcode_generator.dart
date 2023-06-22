@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_database/Scaner/image_builder.dart';
 import 'package:note_database/Scaner/save_btn.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -48,7 +49,15 @@ class GenerateQRCodeState extends State<GenerateQRCode> {
               version: QrVersions.auto,
               size: 200.0,
             ),
-          // ElevatedButton(
+          const Align(
+            alignment: Alignment.topRight,
+            child: ImageBuilder(
+              imagePath: "assets/images/image.png",
+              imgWidth: 250,
+              imgheight: 250,
+            ),
+          ),
+          // ElevatedButton(D:\venkatesan\sql\note_database\
           //   onPressed: () {
           //     setState(() {
           //       qrData = controller.text;

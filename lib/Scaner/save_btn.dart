@@ -31,6 +31,7 @@ class SaveBtnBuilder extends StatelessWidget {
     final image = await imageFromAssetBundle(
       "assets/images/image.png",
     );
+
     final doc = pw.Document();
     doc.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
