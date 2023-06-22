@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_database/Scaner/save_btn.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class GenerateQRCode extends StatefulWidget {
@@ -47,6 +48,15 @@ class GenerateQRCodeState extends State<GenerateQRCode> {
               version: QrVersions.auto,
               size: 200.0,
             ),
+          // ElevatedButton(
+          //   onPressed: () {
+          //     setState(() {
+          //       qrData = controller.text;
+          //     });
+          //   },
+          //   child: const Text('Print '),
+          // ),
+          SaveBtnBuilder(),
         ],
       ),
     );

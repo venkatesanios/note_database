@@ -36,7 +36,7 @@ class _QRcodeScannerState extends State<QRcodeScanner>
               MobileScanner(
                 controller: controller,
                 fit: BoxFit.contain,
-                scanWindow: scanWindow,
+              //  scanWindow: scanWindow,
                 onDetect: (barcode) {
                   setState(() {
                     this.barcode = barcode;

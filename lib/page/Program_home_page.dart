@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:note_database/RESTApi/test_rest.dart';
 import 'package:note_database/Scaner/qr_code.dart';
 import 'package:note_database/Scaner/qrcode_generator.dart';
 import 'package:note_database/Scaner/qrcoded/qrmain.dart';
@@ -177,19 +178,19 @@ class _NotesPageState extends State<NotesPage> {
                           builder: (context) => const Texttovoice()));
                 },
               ),
-              const Divider(
-                height: 1.0,
-                color: Color(0xFF80A84F),
-                thickness: 1.0,
-              ),
-              ListTile(
-                title: const Text('Myimage'),
-                onTap: () {
-                  //
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Myimage()));
-                },
-              ),
+              // const Divider(
+              //   height: 1.0,
+              //   color: Color(0xFF80A84F),
+              //   thickness: 1.0,
+              // ),
+              // ListTile(
+              //   title: const Text('Myimage'),
+              //   onTap: () {
+              //     //
+              //     Navigator.push(context,
+              //         MaterialPageRoute(builder: (context) => const Myimage()));
+              //   },
+              // ),
               const Divider(
                 height: 1.0,
                 color: Color(0xFF80A84F),
@@ -223,21 +224,21 @@ class _NotesPageState extends State<NotesPage> {
                 color: Color(0xFF80A84F),
                 thickness: 1.0,
               ),
-              ListTile(
-                title: const Text('Expandpanellis create'),
-                onTap: () {
-                  //
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Expandpanellis()));
-                },
-              ),
-              const Divider(
-                height: 1.0,
-                color: Color(0xFF80A84F),
-                thickness: 1.0,
-              ),
+              // ListTile(
+              //   title: const Text('Expandpanellis create'),
+              //   onTap: () {
+              //     //
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => Expandpanellis()));
+              //   },
+              // ),
+              // const Divider(
+              //   height: 1.0,
+              //   color: Color(0xFF80A84F),
+              //   thickness: 1.0,
+              // ),
               ListTile(
                 title: const Text('GenerateQRCode'),
                 onTap: () {
@@ -267,12 +268,24 @@ class _NotesPageState extends State<NotesPage> {
                 thickness: 1.0,
               ),
               ListTile(
-                title: const Text('QR Code all'), //MyHomeQRcode
+                title: const Text('QR Code all'), //TestApi
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const MyHomeQRcode()));
+                },
+              ),
+              const Divider(
+                height: 1.0,
+                color: Color(0xFF80A84F),
+                thickness: 1.0,
+              ),
+              ListTile(
+                title: const Text('TestApi'), //
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const TestApi()));
                 },
               ),
               const Divider(
