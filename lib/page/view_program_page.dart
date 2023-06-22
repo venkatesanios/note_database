@@ -38,13 +38,6 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
     valve = await ProgramDatabase.instance.readprogramvalve(widget.noteId);
 
     setState(() => isLoading = false);
-    print(widget.noteId);
-    print('Valve---- $valve');
-    print(valve[0].valvename);
-    print(valve[1].valvename);
-    print(valve[2].valvename);
-
-    print(program.title);
   }
 
   @override
@@ -99,10 +92,34 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
                           const TextStyle(color: Colors.white70, fontSize: 18),
                     ),
                     const SizedBox(height: 18),
+                    Text(
+                      valve[0].valvename,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      valve[0].time,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      valve[0].flow,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 18),
+                    Text(
+                      valve[0].pressure,
+                      style:
+                          const TextStyle(color: Colors.white70, fontSize: 18),
+                    ),
+                    const SizedBox(height: 18),
                     //  buildNotes(),
                     Flexible(
                         child: Container(
-                      child: buildNotes(),
+                      child: buildValvewidget(),
                     ))
                   ],
                 ),
@@ -163,7 +180,8 @@ class _ProgramDetailPageState extends State<ProgramDetailPage> {
           Navigator.of(context).pop();
         },
       );
-  Widget buildNotes() {
+  Widget buildValvewidget() {
+    print('call buildValvewidget');
     return ListView.separated(
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, index) {
