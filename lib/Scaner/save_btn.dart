@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 import 'printable_data.dart';
 
 import 'package:pdf/pdf.dart';
