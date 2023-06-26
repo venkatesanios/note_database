@@ -60,8 +60,18 @@ void fetchData() async {
   var url = Uri.parse('https://jsonplaceholder.typicode.com/users');
   var response = await http.get(url);
   if (response.statusCode == 200) {
+    var jsonResponse = json.decode(response.body);
+    for (var i = 0; i < jsonResponse.length; i++) {
+      //  print(jsonResponse);
+      var latitude = jsonResponse[i]['address']['geo']['lat'];
+      var longitude = jsonResponse[i]['address']['geo']['lng'];
+
+      print('Latitude: $latitude');
+      print('Longitude: $longitude');
+    }
+
     var data = response.body;
-    print(data);
+    // print(data);
   } else {
     print('Request failed with status: ${response.statusCode}.');
   }

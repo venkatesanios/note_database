@@ -1,7 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:note_database/Scaner/image_builder.dart';
-import 'package:note_database/Scaner/save_btn.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 
 class GenerateQRCode extends StatefulWidget {
   const GenerateQRCode({Key? key}) : super(key: key);
@@ -13,6 +16,31 @@ class GenerateQRCode extends StatefulWidget {
 class GenerateQRCodeState extends State<GenerateQRCode> {
   TextEditingController controller = TextEditingController();
   String qrData = '';
+
+  Future<void> printQrImage() async {
+    final pdf = pw.Document();
+
+    final qrImageData = await QrPainter(
+      data: qrData,
+      version: QrVersions.auto,
+    ).toImageData(200.0);
+
+    pdf.addPage(
+      pw.Page(
+        build: (pw.Context context) {
+          return pw.Center(
+            child: pw.Image(pw.MemoryImage(qrImageData!.buffer.asUint8List())),
+          );
+        },
+        // pageFormat: PdfPageFormat.a4,
+        pageFormat: PdfPageFormat(100, 100),
+      ),
+    );
+
+    final Uint8List pdfData = await pdf.save();
+
+    Printing.sharePdf(bytes: pdfData, filename: 'qr_code.pdf');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +58,7 @@ class GenerateQRCodeState extends State<GenerateQRCode> {
               controller: controller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Enter your URL',
+                labelText: 'QR Code Data',
               ),
               maxLines: 5,
             ),
@@ -49,23 +77,10 @@ class GenerateQRCodeState extends State<GenerateQRCode> {
               version: QrVersions.auto,
               size: 200.0,
             ),
-          const Align(
-            alignment: Alignment.topRight,
-            child: ImageBuilder(
-              imagePath: "assets/images/image.png",
-              imgWidth: 250,
-              imgheight: 250,
-            ),
+          ElevatedButton(
+            onPressed: printQrImage,
+            child: const Text('Print'),
           ),
-          // ElevatedButton(D:\venkatesan\sql\note_database\
-          //   onPressed: () {
-          //     setState(() {
-          //       qrData = controller.text;
-          //     });
-          //   },
-          //   child: const Text('Print '),
-          // ),
-          SaveBtnBuilder(),
         ],
       ),
     );
