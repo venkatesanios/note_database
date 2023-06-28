@@ -36,12 +36,6 @@
 @import permission_handler_apple;
 #endif
 
-#if __has_include(<printing/PrintingPlugin.h>)
-#import <printing/PrintingPlugin.h>
-#else
-@import printing;
-#endif
-
 #if __has_include(<rive_common/RivePlugin.h>)
 #import <rive_common/RivePlugin.h>
 #else
@@ -74,7 +68,6 @@
   [FLTLocalAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTLocalAuthPlugin"]];
   [MobileScannerPlugin registerWithRegistrar:[registry registrarForPlugin:@"MobileScannerPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
-  [PrintingPlugin registerWithRegistrar:[registry registrarForPlugin:@"PrintingPlugin"]];
   [RivePlugin registerWithRegistrar:[registry registrarForPlugin:@"RivePlugin"]];
   [SharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"SharedPreferencesPlugin"]];
   [SpeechToTextPlugin registerWithRegistrar:[registry registrarForPlugin:@"SpeechToTextPlugin"]];

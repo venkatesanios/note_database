@@ -8,6 +8,7 @@ import 'package:note_database/Scaner/qr_code.dart';
 import 'package:note_database/Scaner/qrcoded/qrmain.dart';
 import 'package:note_database/db/node_database.dart';
 import 'package:note_database/duplicate/duplicatepage.dart';
+import 'package:note_database/imagecompare/image_comparetest.dart';
 import 'package:note_database/model/note.dart';
 import 'package:note_database/page/TextToVoice.dart';
 import 'package:note_database/page/VoicetoText.dart';
@@ -296,10 +297,12 @@ class _NotesPageState extends State<NotesPage> {
               //   thickness: 1.0,
               // ),
               ListTile(
-                title: const Text('TestApi'), //
+                title: const Text('imagecompare'), //
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const TestApi()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ImageComparePage()));
                 },
               ),
               const Divider(

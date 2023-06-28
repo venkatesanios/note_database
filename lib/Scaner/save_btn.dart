@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:printing/printing.dart';
 import 'printable_data.dart';
 
 import 'package:pdf/pdf.dart';
@@ -28,17 +27,17 @@ class SaveBtnBuilder extends StatelessWidget {
   }
 
   Future<void> printDoc() async {
-    final image = await imageFromAssetBundle(
-      "assets/images/image.png",
-    );
+    // final image = await imageFromAssetBundle(
+    //   "assets/images/image.png",
+    // );
 
-    final doc = pw.Document();
-    doc.addPage(pw.Page(
-        pageFormat: PdfPageFormat.a4,
-        build: (pw.Context context) {
-          return buildPrintableData(image);
-        }));
-    await Printing.layoutPdf(
-        onLayout: (PdfPageFormat format) async => doc.save());
+    // final doc = pw.Document();
+    // doc.addPage(pw.Page(
+    //     pageFormat: PdfPageFormat.a4,
+    //     build: (pw.Context context) {
+    //       return buildPrintableData(image);
+    //     }));
+    // await Printing.layoutPdf(
+    //     onLayout: (PdfPageFormat format) async => doc.save());
   }
 }

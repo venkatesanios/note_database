@@ -6,7 +6,6 @@ list(APPEND FLUTTER_PLUGIN_LIST
   flutter_tts
   local_auth_windows
   permission_handler_windows
-  printing
   rive_common
 )
 

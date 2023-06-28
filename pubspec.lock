@@ -33,14 +33,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.4"
-  bidi:
-    dependency: transitive
-    description:
-      name: bidi
-      sha256: dc00274c7edabae2ab30c676e736ea1eb0b1b7a1b436cb5fe372e431ccb39ab0
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -204,10 +196,18 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: a72242c9a0ffb65d03de1b7113bc4e189686fc07c7147b8b41811d0dd0e0d9bf
+      sha256: "8e9d133755c3e84c73288363e6343157c383a0c6c56fc51afcc5d4d7180306d6"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.17"
+    version: "3.3.0"
+  image_compare:
+    dependency: "direct main"
+    description:
+      name: image_compare
+      sha256: "774e9ef1558ca328191fe9690e8e024159a3a2db6ea4ef6b65bea0faa3631b74"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   image_picker:
     dependency: "direct main"
     description:
@@ -404,10 +404,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "9f75fc7f5580ea5e635b5724de58fb27f684c9ad03ed46fdc1aac768e4557315"
+      sha256: "10659b915e65832b106f6d1d213e09b789cc1f24bf282ee911e49db35b96be4d"
       url: "https://pub.dev"
     source: hosted
-    version: "3.10.4"
+    version: "3.8.4"
   pedantic:
     dependency: transitive
     description:
@@ -488,14 +488,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.7.3"
-  printing:
-    dependency: "direct main"
-    description:
-      name: printing
-      sha256: e7c383dca95ee7b88c02dc1c66638628d3dcdc2fb2cc47e7a595facd47e46b56
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.11.0"
   process:
     dependency: transitive
     description:
@@ -709,6 +701,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      sha256: "1722b2dcc462b4b2f3ee7d188dad008b6eb4c40bbd03a3de451d82c78bba9aad"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.2"
   vector_math:
     dependency: transitive
     description:
@@ -743,4 +743,4 @@ packages:
     version: "6.3.0"
 sdks:
   dart: ">=3.0.1 <4.0.0"
-  flutter: ">=3.10.0"
+  flutter: ">=3.7.0"

@@ -26,12 +26,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "bidi",
-      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/bidi-2.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -159,9 +153,15 @@
     },
     {
       "name": "image",
-      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/image-4.0.17",
+      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/image-3.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.15"
+    },
+    {
+      "name": "image_compare",
+      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/image_compare-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "image_picker",
@@ -309,9 +309,9 @@
     },
     {
       "name": "pdf",
-      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/pdf-3.10.4",
+      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/pdf-3.8.4",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.12"
     },
     {
       "name": "pedantic",
@@ -372,12 +372,6 @@
       "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/pointycastle-3.7.3",
       "packageUri": "lib/",
       "languageVersion": "2.14"
-    },
-    {
-      "name": "printing",
-      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/printing-5.11.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
     },
     {
       "name": "process",
@@ -542,6 +536,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/ASROCK/AppData/Local/Pub/Cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -572,7 +572,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-06-23T05:27:19.774087Z",
+  "generated": "2023-06-28T12:06:26.887671Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }

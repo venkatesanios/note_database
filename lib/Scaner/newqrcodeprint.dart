@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 
 class GenerateQRCode extends StatefulWidget {
   const GenerateQRCode({Key? key}) : super(key: key);
@@ -39,7 +38,7 @@ class GenerateQRCodeState extends State<GenerateQRCode> {
 
     final Uint8List pdfData = await pdf.save();
 
-    Printing.sharePdf(bytes: pdfData, filename: 'qr_code.pdf');
+    // Printing.sharePdf(bytes: pdfData, filename: 'qr_code.pdf');
   }
 
   @override

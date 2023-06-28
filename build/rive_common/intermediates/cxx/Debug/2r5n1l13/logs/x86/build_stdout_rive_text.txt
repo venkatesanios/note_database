@@ -1,2 +1,2 @@
 ninja: Entering directory `C:\Users\ASROCK\AppData\Local\Pub\Cache\hosted\pub.dev\rive_common-0.0.9\android\.cxx\Debug\2r5n1l13\x86'
-ninja: no work to do.
+[1/1] Linking CXX shared library D:\venkatesan\sql\note_database\build\rive_common\intermediates\cxx\Debug\2r5n1l13\obj\x86\librive_text.so

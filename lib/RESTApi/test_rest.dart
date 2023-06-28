@@ -66,8 +66,8 @@ void fetchData() async {
       var latitude = jsonResponse[i]['address']['geo']['lat'];
       var longitude = jsonResponse[i]['address']['geo']['lng'];
 
-      print('Latitude: $latitude');
-      print('Longitude: $longitude');
+      // print('Latitude: $latitude');
+      // print('Longitude: $longitude');
     }
 
     var data = response.body;

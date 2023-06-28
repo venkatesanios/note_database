@@ -27,8 +27,8 @@ dependencies:
   mobile_scanner: ^3.2.0
   qr_flutter: ^4.1.0
   http: ^0.13.3
-  printing: ^5.11.0
   pdf: ^3.6.0
+  image_compare: ^1.1.2
   
 
 
@@ -50,6 +50,8 @@ flutter:
     - assets/images/loginbg.jpg
     - assets/images/loginbgdrop.png
     - assets/images/image.png
+    - assets/images/img1.png
+    - assets/images/img2.png
 
 
  
